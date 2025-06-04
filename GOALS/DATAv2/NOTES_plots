@@ -1,0 +1,67 @@
+
+Make 3x5 plots per page.
+
+Need to set x.range and y.range interactively per source.
+
+Do not save the edges in the delivered data when making the ascii files
+
+Loop through gbtidl script to show sources and set x-y ranges and
+print out values for IDL ploting input file
+
+Smoothing the data to 4.5km/s [7channels]'
+
+print,!g.s[0].source
+
+c1 = click()
+
+c2= click()
+
+print,!g.s[0].source, c1.x,c1.y,c2.x,c2.y,c1.chan,c2.chan
+
+
+F00344-3349       4910.8789    -0.010250002       7433.1514    0.0094374996       562.30491       25.185967
+
+
+(1) use getpltranges.pro  to get plot ranges of the data for each source
+0-50 done (note some duplicates that need cleaning)
+getpltranges,51,...
+
+(2) use pmulti.pro to make pages of plots.
+
+(3) (use similar to pmulti to make the ascii data files [cutting off
+     the edges and showing only data that are plotted)
+
+
+Want to have 2 sets of x-ranges.  One for the plots and one for the
+output ascii data.  Should zoom in on the detected line
+emission/absorption.  If continuum is less than 5-sigma, then remove
+continuum level for plot.      
+
+Need to clean up some RFI replacement regions in the baseline still
+for some sources.   Make version 2.
+
+
+Channel 21.36kHz
+
+Center Velocity=cvel
+
+if (1) eq 1 or 4 [20]
+if (1) eq 2 or 3 [14]
+
+
+Total Line flux  (from stats)
+(*) Line flux [Jy km/s] = [4]
+
+Error on sum: channel rms * n^0.5 number of channels
+c=3.e5
+nchan=[7]-[6]+1
+dvel=dnu*c/nu_obs
+nu_obs=1420.4/(cvel/c+1)
+
+(*) Error Line Flux [9] * nchan^0.5 *  (nchan*dvel)
+
+
+(*) Peak [mJy] [5]
+
+(*) Error Peak [mJy] [9]   
+

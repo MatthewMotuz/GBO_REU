@@ -1,0 +1,2875 @@
+Process per source from calibrated reduc files
+(1) fit1,sc  copy to container-10
+(2) zoom and replace narrow RFI interactively 
+(3) fit2 does smoothing and baseline removal with copy of input in container-11 and continuum as container-3
+Can do more replace after smoothing if needed
+(4) fit3 does measurements with input in container-12 and outputs measurements and ascii spectra
+
+Saves ascii files spectra km/s vs Jy with continuum included, but data
+in keep file has continuum removed and is the output of fit2 before
+the fitting.  The ascii file can include more replacement after step
+2/smoothing and used to clean up data before fitting in by fit3.
+
+
+
+
+2017.09.13
+GBTIDL -> filein,'reduc2/rawpol1.fits'
+GBTIDL -> fit1,0
+F00073+2538
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by      0.58146939  Tcal ratio is       1.1527947
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by      0.59004314  Tcal ratio is       1.1697927
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+      0.13837783    0.0040121191
+GBTIDL -> replace,2310,2320
+GBTIDL -> fit2
+Smoothing the data to 4.5km/s [7channels]
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 5
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+Continuum Level      0.13787830
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      169      376      544      3401.5      4178.2  -0.0045284   0.0056922
+
+                       Mean      Median         RMS    Variance        Area
+                 5.5588E-05  0.00025508   0.0019324  3.7343E-06    0.043543
+RMS    0.0019324286
+Measure Line emission
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      100      245      344      4326.5      4786.6  0.00038085    0.028568
+
+                       Mean      Median         RMS    Variance        Area
+                   0.018644    0.020940   0.0063250  4.0006E-05      8.6758
+Click twice to define gmeasure region
+click on the positions for the two peaks
+% AWV: Left edge was not found, using left maximum location.
+% AWV: Right edge was not found, using right maximum location.
+                                   Right side fit (a + bx) =  54.05  -0.21
+                                    Left side fit (a + bx) =  61.67   0.26
+                                   Peaks (right then left) =  28.57  26.86
+  Area, Width, Velocity (followed by errors in same order) =    8.66  384.44 4561.87    0.19   11.84    5.92
+Click twice to define gmeasure region
+click on the positions for the two peaks
+% AWV: Left edge was not found, using left maximum location.
+% AWV: Right edge was not found, using right maximum location.
+                                   Right side fit (a + bx) =  56.38  -0.23
+                                    Left side fit (a + bx) =  62.10   0.26
+                                   Peaks (right then left) =  28.57  26.86
+  Area, Width, Velocity (followed by errors in same order) =    8.66  446.27 4563.58    0.19   11.33    5.66
+F00073+2538       4566.0002       45.863851
+ASCII file written:txtfiles/F00073+2538_v1.txt
+
+
+GBTIDL -> fit1,2
+F00085-1223
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by      0.58577194  Tcal ratio is       1.1552208
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by      0.59426094  Tcal ratio is       1.1719623
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+      0.13015776     0.021320547
+GBTIDL -> fit2
+Smoothing the data to 4.5km/s [7channels]
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 5
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+Continuum Level      0.12899197
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      193      351      543      4709.1      5604.7  -0.0053013   0.0061031
+
+                       Mean      Median         RMS    Variance        Area
+                 1.4198E-05  6.0985E-05   0.0020772  4.3148E-06    0.012820
+RMS    0.0020772193
+Measure Line emission
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       94      246      339      5660.9      6096.8  -0.0016728    0.021007
+
+                       Mean      Median         RMS    Variance        Area
+                   0.010143    0.010097   0.0052505  2.7568E-05      4.4752
+Click twice to define gmeasure region
+click on the positions for the two peaks
+% AWV: Left edge was not found, using left maximum location.
+                                   Right side fit (a + bx) =  12.21  -0.05
+                                    Left side fit (a + bx) =  18.43   0.06
+                                   Peaks (right then left) =  11.64  21.01
+  Area, Width, Velocity (followed by errors in same order) =    4.47  298.29 5908.23    0.18   54.15   27.08
+Click twice to define gmeasure region
+click on the positions for the two peaks
+% AWV: Left edge was not found, using left maximum location.
+                                   Right side fit (a + bx) =  22.83  -0.10
+                                    Left side fit (a + bx) =  16.78   0.06
+                                   Peaks (right then left) =  11.64  21.01
+  Area, Width, Velocity (followed by errors in same order) =    4.46  432.44 5880.81    0.20   40.69   20.35
+F00085-1223       5879.0003       22.931960
+ASCII file written:FINAL/F00085-1223_v1.txt
+Hit 1 to save
+
+
+2017.09.29
+GBTIDL -> filein,'reduc2/rawpol1.fits'
+
+GBTIDL -> fit1,4                                             
+% Compiled module: FIT1.
+F00163-1039
+% Compiled module: K2JY.
+% Compiled module: READCOL.
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% Compiled module: STRNUMBER.
+% READCOL: 391 valid lines read
+% Compiled module: AVG.
+Scaling data by [Jy/K]      0.58584741  Tcal ratio is       1.1554029
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59880891  Tcal ratio is       1.1809655
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+      0.94832330     0.098001204
+GBTIDL -> fit2
+Smoothing the data to 4.5km/s [7channels]
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 13
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+Continuum Level      0.95053537
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      196      341      536      6984.8      7908.1  -0.0064064   0.0054727
+
+                       Mean      Median         RMS    Variance        Area
+                 3.0468E-05 -4.5909E-05   0.0019573  3.8312E-06    0.028361
+RMS    0.0019573382
+Measure Line emission
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       78      256      333      7946.1      8312.4 -0.00050724    0.032081
+
+                       Mean      Median         RMS    Variance        Area
+                   0.016025    0.017782   0.0086500  7.4823E-05      5.9519
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  43.63  -0.26
+                                    Left side fit (a + bx) =  71.84   0.43
+                                   Peaks (right then left) =  20.67  32.08
+  Area, Width, Velocity (followed by errors in same order) =    5.94  264.55 8141.20    0.16    8.82    4.41
+Click twice to define gmeasure region
+click on the positions for the two peaks
+% AWV: Left edge was not found, using left maximum location.
+                                   Right side fit (a + bx) =  40.26  -0.24
+                                    Left side fit (a + bx) =  72.44   0.43
+                                   Peaks (right then left) =  20.67  32.08
+  Area, Width, Velocity (followed by errors in same order) =    5.94  309.46 8142.59    0.16    9.46    4.73
+F00163-1039       8139.0004       35.987911
+ASCII file written:FINAL/F00163-1039_v1.txt
+Hit 1 to save
+: 1
+GBTIDL -> fit1,6                                             
+F00344-3349
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59472246  Tcal ratio is       1.1560046
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.60332430  Tcal ratio is       1.1727246
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+    -0.051174146    0.0026694211
+GBTIDL -> fit2
+Smoothing the data to 4.5km/s [7channels]
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+Continuum Level    -0.050472325
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      244      304      547      4982.2      6118.7  -0.0045439   0.0055407
+
+                       Mean      Median         RMS    Variance        Area
+                -6.7428E-05 -8.2228E-05   0.0016806  2.8244E-06   -0.077233
+RMS    0.0016805895
+Measure Line emission
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       35      257      291      6179.7      6339.5  -0.0033580   0.0071347
+
+                       Mean      Median         RMS    Variance        Area
+                  0.0015674   0.0014870   0.0026218  6.8738E-06     0.25789
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =   5.35  -0.07
+                                    Left side fit (a + bx) =   3.60   0.02
+                                   Peaks (right then left) =   7.13   7.13
+  Area, Width, Velocity (followed by errors in same order) =    0.27   77.43 625.64    0.08   78.52   39.26
+Click twice to define gmeasure region
+click on the positions for the two peaks
+% AWV: Right edge was not found, using right maximum location.
+                                   Right side fit (a + bx) =   6.98  -0.07
+                                    Left side fit (a + bx) =   3.05   0.02
+                                   Peaks (right then left) =   7.13   7.13
+  Area, Width, Velocity (followed by errors in same order) =    0.26  174.13 621.46    0.11   78.52   39.26
+F00344-3349       6173.0003       61.151819
+ASCII file written:FINAL/F00344-3349_v1.txt
+Hit 1 to save
+: 1
+
+GBTIDL -> fit1,8                                             
+F00402-2349
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58899076  Tcal ratio is       1.1571294
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59786779  Tcal ratio is       1.1745692
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+      0.13373276    0.0021208766
+GBTIDL -> fit2
+Smoothing the data to 4.5km/s [7channels]
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 0 
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 9
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 8
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+Continuum Level      0.13402663
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      214      331      544      5465.5      6464.4  -0.0042616   0.0041868
+
+                       Mean      Median         RMS    Variance        Area
+                -1.2462E-05 -0.00011396   0.0016793  2.8201E-06   -0.012547
+RMS    0.0016793061
+Measure Line emission
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       71      236      306      6582.1      6912.0  -0.0015830    0.011289
+
+                       Mean      Median         RMS    Variance        Area
+                  0.0060109   0.0068783   0.0029497  8.7010E-06      2.0138
+Click twice to define gmeasure region
+click on the positions for the two peaks
+% AWV: Left edge was not found, using left maximum location.
+                                   Right side fit (a + bx) =  15.50  -0.09
+                                    Left side fit (a + bx) =  27.91   0.18
+                                   Peaks (right then left) =   8.56  11.29
+  Area, Width, Velocity (followed by errors in same order) =    2.01  261.12 6746.68    0.14   20.51   10.26
+Click twice to define gmeasure region
+click on the positions for the two peaks
+% AWV: Right edge was not found, using right maximum location.
+                                   Right side fit (a + bx) =   9.29  -0.05
+                                    Left side fit (a + bx) =  27.84   0.16
+                                   Peaks (right then left) =   9.45  11.29
+  Area, Width, Velocity (followed by errors in same order) =    2.02  329.65 6762.37    0.14   37.35   18.67
+F00402-2349       6646.0003       45.705400
+ASCII file written:FINAL/F00402-2349_v1.txt
+Hit 1 to save
+: 1
+GBTIDL -> fit1,10                                            
+F00506+7248
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58237157  Tcal ratio is       1.1529019
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59093410  Tcal ratio is       1.1698528
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+    -0.050917789     0.078171584
+GBTIDL -> replace,2500,2600
+GBTIDL -> copy,10,0
+GBTIDL -> replace,2501,2600
+GBTIDL -> copy,10,0
+GBTIDL -> replace,2502,2600
+GBTIDL -> copy,10,0
+GBTIDL -> replace,2502,2601
+GBTIDL -> copy,10,0
+GBTIDL -> replace,2480,2610
+GBTIDL -> copy,10,0
+GBTIDL -> replace,2475,2615
+GBTIDL -> copy,10,0
+GBTIDL -> replace,2478,2615
+GBTIDL -> copy,10,0
+GBTIDL -> replace,2478,2619 
+GBTIDL -> fit2
+Smoothing the data to 4.5km/s [7channels]
+set baseline region
+Use the left button to mark the region and the right button to exit
+setregion
+enter baseline fit
+: setregion
+% READ: Input conversion error. Unit: 0, File: <stdin>
+% Execution halted at: FIT2               19 /disk1/AGBT10B14/fit2.pro
+%                      $MAIN$          
+GBTIDL -> retall
+GBTIDL -> copy,11,0
+GBTIDL -> freexy
+GBTIDL -> fit2
+Smoothing the data to 4.5km/s [7channels]
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 9
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 8
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 8
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+Continuum Level    -0.050842637
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      170      381      550      3510.6      4292.6  -0.0059299   0.0046758
+
+                       Mean      Median         RMS    Variance        Area
+                 1.9817E-05  6.3188E-05   0.0018821  3.5421E-06    0.015627
+RMS    0.0018820553
+Measure Line emission
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       91      232      322      4566.5      4985.3  -0.0032430    0.024042
+
+                       Mean      Median         RMS    Variance        Area
+                   0.014458    0.016155   0.0063807  4.0713E-05      6.1309
+Click twice to define gmeasure region
+click on the positions for the two peaks
+% AWV: Left edge was not found, using left maximum location.
+                                   Right side fit (a + bx) =  40.56  -0.19
+                                    Left side fit (a + bx) =  40.61   0.19
+                                   Peaks (right then left) =  24.04  23.03
+  Area, Width, Velocity (followed by errors in same order) =    6.14  316.51 4779.47    0.17   14.16    7.08
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  40.02  -0.18
+                                    Left side fit (a + bx) =  40.88   0.19
+                                   Peaks (right then left) =  24.04  23.03
+  Area, Width, Velocity (followed by errors in same order) =    6.12  386.21 4780.88    0.17   14.23    7.12
+F00506+7248       4704.0002       22.941555
+ASCII file written:FINAL/F00506+7248_v1.txt
+Hit 1 to save
+: 1
+GBTIDL -> fit1,12                                            
+F00548+4331
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58393468  Tcal ratio is       1.1541810
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59238464  Tcal ratio is       1.1708828
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+     0.084559037    0.0018714280
+GBTIDL -> fit2
+Smoothing the data to 4.5km/s [7channels]
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 9
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 9
+enter 0 to repeat or 1 if done
+: 0
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 9
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+***12 00548  (baselines wing very uncertain)*** skip
+
+GBTIDL -> fit1,14                                            
+F01053-1746
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58705113  Tcal ratio is       1.1555786
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59556127  Tcal ratio is       1.1723303
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+      0.30356910    0.0059583983
+GBTIDL -> fit2
+Smoothing the data to 4.5km/s [7channels]
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+Continuum Level      0.30194302
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      173      182      354      5725.4      6532.9 -0.00089884    0.035620
+
+                       Mean      Median         RMS    Variance        Area
+                   0.015277    0.014963   0.0091459  8.3647E-05      12.440
+RMS    0.0091458861
+Measure Line emission
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      173      182      354      5725.4      6532.9 -0.00089884    0.035620
+
+                       Mean      Median         RMS    Variance        Area
+                   0.015277    0.014963   0.0091459  8.3647E-05      12.440
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  17.83  -0.03
+                                    Left side fit (a + bx) =  37.04   0.09
+                                   Peaks (right then left) =  28.04  35.62
+  Area, Width, Velocity (followed by errors in same order) =   12.39  559.32 6180.16    1.11  323.46  161.73
+Click twice to define gmeasure region
+click on the positions for the two peaks
+% AWV: Left edge was not found, using left maximum location.
+                                   Right side fit (a + bx) =  63.48  -0.18
+                                    Left side fit (a + bx) =  35.54   0.09
+                                   Peaks (right then left) =  14.55  35.62
+  Area, Width, Velocity (followed by errors in same order) =   12.41  710.81 6162.58    1.16  119.43   59.71
+F01053-1746       6014.0003       45.704537
+ASCII file written:FINAL/F01053-1746_v1.txt
+Hit 1 to save
+: 1
+
+
+2018.07.05
+GBTIDL -> fit1,16
+% Compiled module: FIT1.
+F01076-1707
+Scaling data by [Jy/K]      0.58589763  Tcal ratio is       1.1538103
+Scaling data by [Jy/K]      0.59898772  Tcal ratio is       1.1795887
+Rough continuum levels in K and difference between pols [K]:
+      0.12680553     0.017165562
+GBTIDL -> replace,2188,2203
+GBTIDL -> replace,2214,2226
+GBTIDL -> fit2
+% Compiled module: FIT2.
+Smoothing the data to 4.5km/s [7channels]
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 0 
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 15
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F01076-1707       10040.000       43.633492
+Continuum Level      0.12577273
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      482       58      539      8857.2      11173.  -0.0043588   0.0039541
+
+                       Mean      Median         RMS    Variance        Area
+                 1.9620E-06  7.1889E-05   0.0014586  2.1275E-06   0.0045873
+RMS    0.0014585794
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      328      167      494      9072.4      10645.  -0.0032339   0.0038455
+
+                       Mean      Median         RMS    Variance        Area
+                 4.8574E-05  0.00013778   0.0014316  2.0493E-06    0.077020
+If non-gauss detection hit 1, if gaus source hit 2, if nondet hit 0
+: 0
+ASCII file written:FINAL/F01076-1707_v1.txt
+Hit 1 to save
+: 1
+
+
+GBTIDL -> fit1,18
+F01173+1405
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58308347  Tcal ratio is       1.1537928
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59670691  Tcal ratio is       1.1807506
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+    -0.058944199     0.019523233
+GBTIDL -> replace,2885,2910
+GBTIDL -> replace,1208,1216
+GBTIDL -> replace,1234,1249
+GBTIDL -> replace,1260,1275
+GBTIDL -> replace,1555,1561
+GBTIDL -> fit3
+F01173+1405       9360.0004       108.60505
+Continuum Level    -0.059850558
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       98      310      407      8811.7      9275.8  -0.0028053   0.0024073
+
+                       Mean      Median         RMS    Variance        Area
+                -0.00017046 -0.00014444   0.0010409  1.0835E-06   -0.080047
+RMS    0.0010409029
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       58      248      305      9299.7      9573.2  -0.0019252    0.012423
+
+                       Mean      Median         RMS    Variance        Area
+                  0.0047774   0.0049058   0.0039647  1.5719E-05      1.3303
+If non-gauss detection hit 1, if gaus source hit 2, if nondet hit 0
+: 1
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  12.25  -0.12
+                                    Left side fit (a + bx) =   9.18   0.06
+                                   Peaks (right then left) =  12.13  12.42
+  Area, Width, Velocity (followed by errors in same order) =    1.33  112.18 9441.84    0.06   18.86    9.43
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  13.91  -0.12
+                                    Left side fit (a + bx) =   8.32   0.06
+                                   Peaks (right then left) =  12.42  12.42
+  Area, Width, Velocity (followed by errors in same order) =    1.34  194.35 9428.04    0.07   18.86    9.43
+ASCII file written:FINAL/F01173+1405_v1.txt
+Hit 1 to save
+: 1
+GBTIDL -> fit1,20
+F01364-1042
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58246699  Tcal ratio is       1.1488618
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59530079  Tcal ratio is       1.1741753
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+     0.044965891    0.0015194656
+GBTIDL -> replace,3615,3640
+GBTIDL -> replace,3614,3640
+GBTIDL -> fit2
+Smoothing the data to 4.5km/s [7channels]
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 15
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F01364-1042       14462.001       138.06649
+Continuum Level     0.043534208
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      458       51      508      13398.      15663.  -0.0032776   0.0026663
+
+                       Mean      Median         RMS    Variance        Area
+                 1.3886E-06 -1.7535E-05  0.00095388  9.0988E-07   0.0031747
+RMS   0.00095387691
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      181      193      373      14063.      14955.  -0.0032776   0.0026408
+
+                       Mean      Median         RMS    Variance        Area
+                 1.2059E-06  2.6946E-05  0.00095863  9.1897E-07   0.0010846
+If non-gauss detection hit 1, if gaus source hit 2, if nondet hit 0
+: 0
+ASCII file written:FINAL/F01364-1042_v1.txt
+Hit 1 to save
+: 1
+GBTIDL -> fit1,22
+F01417+1651
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58404248  Tcal ratio is       1.1551263
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59716372  Tcal ratio is       1.1810777
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+     0.043277731     0.021052243
+GBTIDL -> replace,1226,1239
+GBTIDL -> fit2
+Smoothing the data to 4.5km/s [7channels]
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 9
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F01417+1651       8223.0004       107.01263
+Continuum Level     0.050459227
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      198      342      539      7054.0      7987.3  -0.0029084   0.0029415
+
+                       Mean      Median         RMS    Variance        Area
+                -5.7877E-05 -2.6696E-05   0.0010080  1.0160E-06   -0.054455
+RMS    0.0010079570
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       69      260      328      8053.8      8377.4  -0.0018197    0.014077
+
+                       Mean      Median         RMS    Variance        Area
+                  0.0063430   0.0069490   0.0046448  2.1574E-05      2.0850
+If non-gauss detection hit 1, if gaus source hit 2, if nondet hit 0
+: 1
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  20.34  -0.17
+                                    Left side fit (a + bx) =  18.03   0.13
+                                   Peaks (right then left) =  11.40  14.08
+  Area, Width, Velocity (followed by errors in same order) =    2.10  182.26 8225.50    0.07   10.03    5.01
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  21.36  -0.17
+                                    Left side fit (a + bx) =  17.26   0.13
+                                   Peaks (right then left) =  11.40  14.08
+  Area, Width, Velocity (followed by errors in same order) =    2.10  232.08 8219.34    0.07   10.03    5.01
+ASCII file written:FINAL/F01417+1651_v1.txt
+Hit 1 to save
+: 1
+GBTIDL -> fit1,24
+F01484+2220
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58341726  Tcal ratio is       1.1538029
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59670907  Tcal ratio is       1.1800896
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+      0.11321735     0.017261947
+GBTIDL -> replace,1762,1785
+GBTIDL -> replace,1788,1820
+GBTIDL -> replace,2093,2097
+GBTIDL -> replace,3410,3450
+GBTIDL -> fit2
+Smoothing the data to 4.5km/s [7channels]
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 9
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 15
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F01484+2220       9734.0005       111.63989
+Continuum Level      0.11814273
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      153      331      483      8820.8      9548.7  -0.0034589   0.0027440
+
+                       Mean      Median         RMS    Variance        Area
+                -7.1223E-05 -0.00013959   0.0010661  1.1366E-06   -0.052309
+RMS    0.0010661028
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       85      243      327      9567.9      9971.7 -0.00091004    0.024011
+
+                       Mean      Median         RMS    Variance        Area
+                   0.011206    0.011259   0.0072134  5.2033E-05      4.5847
+If non-gauss detection hit 1, if gaus source hit 2, if nondet hit 0
+: 1
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  16.86  -0.07
+                                    Left side fit (a + bx) =  24.20   0.10
+                                   Peaks (right then left) =  18.20  24.01
+  Area, Width, Velocity (followed by errors in same order) =    4.58  247.25 9823.09    0.09   18.97    9.48
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  16.53  -0.07
+                                    Left side fit (a + bx) =  24.70   0.10
+                                   Peaks (right then left) =  18.20  24.01
+  Area, Width, Velocity (followed by errors in same order) =    4.58  390.72 9827.97    0.10   18.97    9.48
+ASCII file written:FINAL/F01484+2220_v1.txt
+Hit 1 to save
+: 1
+GBTIDL -> fit1,26
+F01519+3640
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58375706  Tcal ratio is       1.1546087
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59222069  Tcal ratio is       1.1713489
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+    -0.090965264     0.064048449
+GBTIDL -> fit2
+Smoothing the data to 4.5km/s [7channels]
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 15
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 17
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3 
+F01519+3640       5621.0003       56.709741
+Continuum Level    -0.096334683
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      179      354      532      4504.1      5333.2  -0.0034194   0.0037428
+
+                       Mean      Median         RMS    Variance        Area
+                 8.0005E-05  9.2361E-05   0.0013702  1.8773E-06    0.066884
+RMS    0.0013701582
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       86      257      342      5389.2      5786.9  -0.0024692    0.018354
+
+                       Mean      Median         RMS    Variance        Area
+                  0.0077442   0.0087676   0.0062615  3.9206E-05      3.1197
+If non-gauss detection hit 1, if gaus source hit 2, if nondet hit 0
+: 1
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  19.14  -0.12
+                                    Left side fit (a + bx) =  22.20   0.13
+                                   Peaks (right then left) =  13.11  18.35
+  Area, Width, Velocity (followed by errors in same order) =    3.16  213.05 5608.38    0.10   15.31    7.65
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  16.45  -0.09
+                                    Left side fit (a + bx) =  22.32   0.13
+                                   Peaks (right then left) =  16.16  18.35
+  Area, Width, Velocity (followed by errors in same order) =    3.13  294.00 5609.27    0.11   18.33    9.17
+ASCII file written:FINAL/F01519+3640_v1.txt
+Hit 1 to save
+: 1
+GBTIDL -> fit1,28
+F02070+3857
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58358877  Tcal ratio is       1.1540089
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59206805  Tcal ratio is       1.1707761
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+    -0.024835343     0.027157667
+GBTIDL -> replace,3510,3591
+GBTIDL -> fit2
+Smoothing the data to 4.5km/s [7channels]
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 9
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F02070+3857       5372.0003       45.883110
+Continuum Level    -0.032561666
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      184       46      229      5668.6      6527.6  -0.0056987   0.0046011
+
+                       Mean      Median         RMS    Variance        Area
+                -2.1702E-05 -8.7081E-05   0.0018410  3.3893E-06   -0.018796
+RMS    0.0018410181
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      126      235      360      5056.7      5640.5  -0.0054020    0.034589
+
+                       Mean      Median         RMS    Variance        Area
+                   0.016606    0.020365   0.0096630  9.3374E-05      9.7917
+If non-gauss detection hit 1, if gaus source hit 2, if nondet hit 0
+: 1
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) = 130.62  -0.61
+                                    Left side fit (a + bx) =  56.37   0.20
+                                   Peaks (right then left) =  25.84  34.59
+  Area, Width, Velocity (followed by errors in same order) =    9.79  391.59 5391.34    0.19    9.51    4.75
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) = 141.59  -0.61
+                                    Left side fit (a + bx) =  52.68   0.20
+                                   Peaks (right then left) =  25.84  34.59
+  Area, Width, Velocity (followed by errors in same order) =    9.79  451.56 5373.23    0.19    9.51    4.75
+ASCII file written:FINAL/F02070+3857_v1.txt
+Hit 1 to save
+: 1
+GBTIDL -> fit1,30
+F02071-1023
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58375166  Tcal ratio is       1.1526141
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59252460  Tcal ratio is       1.1699362
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+      0.16841281     0.010370973
+GBTIDL -> replace,1210,1222
+GBTIDL -> replace,1223,1260
+GBTIDL -> replace,1200,1282
+GBTIDL -> fit2             
+Smoothing the data to 4.5km/s [7channels]
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 9
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 15
+Enter 0 to enter different polonomial or 1 if done
+: 0   
+enter baseline fit
+: 10
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 0
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F02071-1023       3849.0002       45.862089
+Continuum Level      0.17147676
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      170      375      544      2689.9      3467.6  -0.0037097   0.0055956
+
+                       Mean      Median         RMS    Variance        Area
+                -8.3314E-05 -1.7009E-05   0.0017439  3.0411E-06   -0.065342
+RMS    0.0017438892
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      131      237      367      3504.5      4105.6  -0.0017966    0.090437
+
+                       Mean      Median         RMS    Variance        Area
+                   0.033049    0.019249    0.030416  0.00092514      20.058
+If non-gauss detection hit 1, if gaus source hit 2, if nondet hit 0
+: 1
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) = 134.74  -0.75
+                                    Left side fit (a + bx) =  80.31   0.39
+                                   Peaks (right then left) =  90.44  67.59
+  Area, Width, Velocity (followed by errors in same order) =   19.85  241.97 3849.45    0.14    5.03    2.51
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) = 139.23  -0.75
+                                    Left side fit (a + bx) =  82.56   0.42
+                                   Peaks (right then left) =  90.44  70.94
+  Area, Width, Velocity (followed by errors in same order) =   20.03  325.21 3843.44    0.15    4.74    2.37
+ASCII file written:FINAL/F02071-1023_v1.txt
+Hit 1 to save
+: 1
+
+
+
+2018.07.10
+Editted Fit3 to handle Gaussian fitting and re-did F00344-3349
+
+GBTIDL -> fit3
+F00344-3349       6173.0003       61.151819
+Continuum Level    -0.051436773
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      228      305      532      305.00      532.00  -0.0043822   0.0057949
+
+                       Mean      Median         RMS    Variance        Area
+                -1.4860E-05 -1.7994E-05   0.0016282  2.6510E-06  -0.0033882
+RMS    0.0016281777
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       51      254      304      254.00      304.00  -0.0029077   0.0086875
+
+                       Mean      Median         RMS    Variance        Area
+                  0.0025057   0.0024133   0.0025436  6.4699E-06     0.12779
+If non-gauss detection hit 1, if gaus source hit 2, if nondet hit 0
+: 2
+**********************************************************
+Instructions for fitgauss procedure:
+Left Mouse Button: to mark regions to be fit.
+Center Mouse Button: to mark initial guesses (center then width)
+Right Mouse Button: to calculate and show fits
+**********************************************************
+Limits accepted for region        1
+Guesses accepted for gaussian        1
+***** Initial Guesses
+          G#      Height       Center (chan)    FWHM (chan) 
+Init:      1    0.007059         282.40536         13.18
+
+***** Fitted Gaussians
+        Height                    Center (chan)               FWHM (chan)
+ 1    0.005508 ( 0.0006466)     278.62875 (     1.130)       19.68 (     2.742)
+Click twice to define gmeasure region
+click on the positions for the two peaks
+% AWV: Right edge was not found, using right maximum location.
+                                   Right side fit (a + bx) =   6.72  -0.07
+                                    Left side fit (a + bx) =   5.85   0.06
+                                   Peaks (right then left) =   8.69   8.69
+  Area, Width, Velocity (followed by errors in same order) =    0.54  147.89 6219.79    0.09   35.34   17.67
+ASCII file written:FINAL/F00344-3349_v1.txt
+Hit 1 to save
+: 1
+
+
+GBTIDL -> fit1,32
+F02114+0456
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58333934  Tcal ratio is       1.1538045
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59709491  Tcal ratio is       1.1810120
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+      0.17314996     0.029729611
+GBTIDL -> replace,749,795
+GBTIDL -> replace 801,805
+
+replace 801,805
+         ^
+% Syntax error.
+GBTIDL -> replace,801,805
+GBTIDL -> replace,2390,2445
+GBTIDL -> replace,2475,2495
+GBTIDL -> fit2
+Smoothing the data to 4.5km/s [7channels]
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 11 
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 15
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 21
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 17
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> replace,340,350
+GBTIDL -> fit3
+F02114+0456       9060.0004       86.795589
+Continuum Level      0.17410301
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      256      285      540      285.00      540.00  -0.0036398   0.0035052
+
+                       Mean      Median         RMS    Variance        Area
+                -0.00021619 -0.00017716   0.0013703  1.8776E-06   -0.055344
+RMS    0.0013702580
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       51      223      273      223.00      273.00 -9.3981E-05    0.017524
+
+                       Mean      Median         RMS    Variance        Area
+                  0.0065213   0.0064793   0.0053868  2.9017E-05     0.33259
+If non-gauss detection hit 1, if gaus source hit 2, if nondet hit 0
+: 1
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  35.79  -0.37
+                                    Left side fit (a + bx) =   8.84   0.05
+                                   Peaks (right then left) =  17.52  11.45
+  Area, Width, Velocity (followed by errors in same order) =    1.60  151.55 9258.89    0.09   27.57   13.79
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  44.39  -0.37
+                                    Left side fit (a + bx) =   7.66   0.05
+                                   Peaks (right then left) =  17.52  11.45
+  Area, Width, Velocity (followed by errors in same order) =    1.60  225.06 9235.38    0.10   27.57   13.79
+ASCII file written:FINAL/F02114+0456_v1.txt
+Hit 1 to save
+: 1
+
+GBTIDL -> fit1,34
+F02152+1418
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58185937  Tcal ratio is       1.1524877
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59049424  Tcal ratio is       1.1695907
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+      0.10232656     0.024878405
+GBTIDL -> replace,1300,1370
+GBTIDL -> replace,1300,1372
+GBTIDL -> fit2
+Smoothing the data to 4.5km/s [7channels]
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 9
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 5
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+
+2018.07.11
+GBTIDL -> fit1,34
+F02152+1418
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58185937  Tcal ratio is       1.1524877
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59049424  Tcal ratio is       1.1695907
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+      0.10232656     0.024878405
+GBTIDL -> replace,1307,1360
+GBTIDL -> replace,1307,1359
+GBTIDL -> replace,1308,1361
+GBTIDL -> replace,1306,1361
+GBTIDL -> replace,185,194
+GBTIDL -> fit3
+F02152+1418       3912.0002       20.382894
+Continuum Level     0.096510309
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      205       24      228      4197.5      5146.1  -0.0088086   0.0067505
+
+                       Mean      Median         RMS    Variance        Area
+                -5.6140E-05  0.00014926   0.0025906  6.7112E-06   -0.053686
+RMS    0.0025906064
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      143      235      377      3508.3      4165.0  -0.0036079     0.11137
+
+                       Mean      Median         RMS    Variance        Area
+                   0.062411    0.080483    0.037062   0.0013736      41.365
+If non-gauss detection hit 1, if gaus source hit 2, if nondet hit 0
+: 1
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) = 278.73  -1.08
+                                    Left side fit (a + bx) = 167.75   0.54
+                                   Peaks (right then left) = 110.02 111.37
+  Area, Width, Velocity (followed by errors in same order) =   41.33  416.73 3890.68    0.27    5.33    2.67
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) = 295.01  -1.08
+                                    Left side fit (a + bx) = 159.55   0.54
+                                   Peaks (right then left) = 110.02 111.37
+  Area, Width, Velocity (followed by errors in same order) =   41.28  506.55 3875.61    0.27    5.33    2.67
+ASCII file written:FINAL/F02152+1418_v1.txt
+Hit 1 to save
+: 1
+F02208+4744
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58306241  Tcal ratio is       1.1529321
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59166714  Tcal ratio is       1.1699468
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+    -0.013215037     0.075151175
+GBTIDL -> replace,2410,2590
+GBTIDL -> replace,2409,2590
+
+Changed script to replace after smoothing and put smoothing into fit1.
+This should speed things up and make better plots and better fitting.
+
+GBTIDL -> fit1,38
+F02208+4744
+% Compiled module: K2JY.
+% Compiled module: READCOL.
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% Compiled module: STRNUMBER.
+% READCOL: 391 valid lines read
+% Compiled module: AVG.
+Scaling data by [Jy/K]      0.58306241  Tcal ratio is       1.1529321
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59166714  Tcal ratio is       1.1699468
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+    -0.013215037     0.075151175
+GBTIDL -> .run fit1
+% Compiled module: FIT1.
+GBTIDL -> fit1,38
+F02208+4744
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58306241  Tcal ratio is       1.1529321
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59166714  Tcal ratio is       1.1699468
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+    -0.013215037     0.075151175
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> histogram
+GBTIDL -> replace 356,360
+
+replace 356,360
+         ^
+% Syntax error.
+GBTIDL -> replace,356,360
+GBTIDL -> .run fit2
+GBTIDL -> replace,356,360
+GBTIDL -> fit2
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+% Compiled module: FIT3.
+F02208+4744       4677.0002       33.134627
+Continuum Level    -0.011951933
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       74      262      335      4479.2      4818.6 -0.00071077    0.024834
+
+                       Mean      Median         RMS    Variance        Area
+                   0.012160    0.012693   0.0074869  5.6053E-05      4.1886
+RMS    0.0074868597
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+Stats are not supported for a single channel.
+Data value at index          264 =   -0.00071077438
+% Expression must be a structure in this context: BSTATS.
+% Execution halted at: FIT3               24 /disk1/AGBT10B14/fit3.pro
+%                      $MAIN$          
+GBTIDL -> retall 
+GBTIDL -> retall
+GBTIDL -> retall
+GBTIDL -> retall
+GBTIDL -> .run fit3
+% Compiled module: FIT3.
+GBTIDL -> fit3
+F02208+4744       4677.0002       33.134627
+Continuum Level    -0.011951933
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      205       45      249      4879.1      5832.0  -0.0056963   0.0058650
+
+                       Mean      Median         RMS    Variance        Area
+                -2.6498E-05 -0.00010949   0.0021488  4.6174E-06   -0.025453
+RMS    0.0021488207
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       76      260      335      4479.2      4827.9  -0.0020203    0.024834
+
+                       Mean      Median         RMS    Variance        Area
+                   0.011811    0.012398   0.0076910  5.9151E-05      4.1785
+If non-gauss detection hit 1, if gaus source hit 2, if nondet hit 0
+: 2
+**********************************************************
+Instructions for fitgauss procedure:
+Left Mouse Button: to mark regions to be fit.
+Center Mouse Button: to mark initial guesses (center then width)
+Right Mouse Button: to calculate and show fits
+**********************************************************
+Limits accepted for region        1
+Guesses accepted for gaussian        1
+***** Initial Guesses
+          G#      Height       Center  (km/s)   FWHM  (km/s)
+Init:      1     0.02312         4630.2798         195.6
+
+***** Fitted Gaussians
+        Height                    Center (km/s)               FWHM (km/s)
+ 1     0.02244 ( 0.0005006)     4631.9898 (     1.976)       180.6 (     4.864)
+Click twice to define gmeasure region
+click on the positions for the two peaks
+% AWV: Right edge was not found, using right maximum location.
+                                   Right side fit (a + bx) =  23.45  -0.13
+                                    Left side fit (a + bx) =  24.85   0.14
+                                   Peaks (right then left) =  24.83  24.83
+  Area, Width, Velocity (followed by errors in same order) =    4.15  280.38 4635.42    0.17   21.76   10.88
+ASCII file written:FINAL/F02208+4744_v1.txt
+Hit 1 to save
+: 1
+GBTIDL -> fit1,40
+F02281-0309
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58404099  Tcal ratio is       1.1548961
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59249645  Tcal ratio is       1.1716161
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+      0.15734233     0.028264270
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> fit2
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F02281-0309       5738.0003       45.862280
+Continuum Level      0.15891737
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      180      375      554      4518.0      5351.8  -0.0065695   0.0073824
+
+                       Mean      Median         RMS    Variance        Area
+                -0.00017322 -0.00031354   0.0027580  7.6066E-06    -0.14563
+RMS    0.0027580076
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      155      210      364      5403.2      6124.5  0.00033270    0.081532
+
+                       Mean      Median         RMS    Variance        Area
+                   0.041268    0.039300    0.020135  0.00040541      30.029
+If non-gauss detection hit 1, if gaus source hit 2, if nondet hit 0
+: 1
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) = 286.88  -0.87
+                                    Left side fit (a + bx) = 381.86   1.18
+                                   Peaks (right then left) =  72.91  81.53
+  Area, Width, Velocity (followed by errors in same order) =   29.96  578.15 5742.16    0.34    3.93    1.96
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) = 285.05  -0.87
+                                    Left side fit (a + bx) = 384.36   1.18
+                                   Peaks (right then left) =  72.91  81.53
+  Area, Width, Velocity (followed by errors in same order) =   29.83  622.26 5744.26    0.33    3.93    1.96
+ASCII file written:FINAL/F02281-0309_v1.txt
+Hit 1 to save
+: 1
+GBTIDL -> fit1,42
+F02345+2053
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58152029  Tcal ratio is       1.1526747
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59022964  Tcal ratio is       1.1699382
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+     0.092974300    0.0021226546
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> replace,239,242
+GBTIDL -> fit2
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 5
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 9
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 9
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F02345+2053       4140.0002       22.931925
+Continuum Level     0.092575726
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      191      347      537      3010.9      3887.3  -0.0058074   0.0055864
+
+                       Mean      Median         RMS    Variance        Area
+                -0.00010193  4.2216E-05   0.0020300  4.1207E-06   -0.090069
+RMS    0.0020299600
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       97      248      344      3901.2      4346.0  -0.0021235    0.075562
+
+                       Mean      Median         RMS    Variance        Area
+                   0.037482    0.040591    0.024779  0.00061398      16.871
+If non-gauss detection hit 1, if gaus source hit 2, if nondet hit 0
+: 1
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  68.74  -0.29
+                                    Left side fit (a + bx) = 154.16   0.89
+                                   Peaks (right then left) =  62.77  75.56
+  Area, Width, Velocity (followed by errors in same order) =   16.84  264.95 4132.58    0.17    7.37    3.69
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) = 118.22  -0.65
+                                    Left side fit (a + bx) = 163.82   0.89
+                                   Peaks (right then left) =  43.74  75.56
+  Area, Width, Velocity (followed by errors in same order) =   16.84  336.56 4143.49    0.18    3.86    1.93
+ASCII file written:FINAL/F02345+2053_v1.txt
+Hit 1 to save
+: 1
+GBTIDL -> fit1,46
+F02435+1253
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58415331  Tcal ratio is       1.1568720
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59294422  Tcal ratio is       1.1742817
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+    0.0042206182    0.0036910674
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> fit2
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F02435+1253       6559.0003       45.863900
+Continuum Level    0.0045353476
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      222       34      255      6735.3      7780.5  -0.0050014   0.0048542
+
+                       Mean      Median         RMS    Variance        Area
+                 1.2192E-05  1.2291E-05   0.0017388  3.0236E-06    0.012844
+RMS    0.0017388499
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      114      260      373      6180.1      6711.8  -0.0015429    0.073057
+
+                       Mean      Median         RMS    Variance        Area
+                   0.020075    0.017290    0.017042  0.00029043      10.785
+If non-gauss detection hit 1, if gaus source hit 2, if nondet hit 0
+: 1
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  60.29  -0.72
+                                    Left side fit (a + bx) =  39.25   0.11
+                                   Peaks (right then left) =  73.06  73.06
+  Area, Width, Velocity (followed by errors in same order) =   10.78   68.38 6553.09    0.07   16.71    8.35
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) = 143.70  -0.72
+                                    Left side fit (a + bx) =  25.44   0.09
+                                   Peaks (right then left) =  73.06  51.66
+  Area, Width, Velocity (followed by errors in same order) =   10.74  359.33 6437.31    0.16   20.35   10.18
+ASCII file written:FINAL/F02435+1253_v1.txt
+Hit 1 to save
+: 1
+GBTIDL -> fit1,48
+F02437+2122
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58384421  Tcal ratio is       1.1574204
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59333760  Tcal ratio is       1.1762402
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+     0.022587560   0.00072444584
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> fit2
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F02437+2122       6985.0003       99.359001
+Continuum Level     0.020493292
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      159      386      544      5801.9      6543.9  -0.0026954   0.0024376
+
+                       Mean      Median         RMS    Variance        Area
+                -3.3633E-05 -2.6237E-05   0.0010366  1.0745E-06   -0.025174
+RMS    0.0010365680
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       88      241      328      6817.2      7228.0  -0.0012778   0.0086718
+
+                       Mean      Median         RMS    Variance        Area
+                  0.0038238   0.0040718   0.0025371  6.4368E-06      1.5911
+If non-gauss detection hit 1, if gaus source hit 2, if nondet hit 0
+: 1
+Click twice to define gmeasure region
+click on the positions for the two peaks
+% AWV: Right edge was not found, using right maximum location.
+                                   Right side fit (a + bx) =  38.02  -0.25
+                                    Left side fit (a + bx) =   7.88   0.03
+                                   Peaks (right then left) =   8.18   8.67
+  Area, Width, Velocity (followed by errors in same order) =    1.59  271.58 7055.99    0.09   34.90   17.45
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  46.70  -0.25
+                                    Left side fit (a + bx) =   6.85   0.03
+                                   Peaks (right then left) =   8.18   8.67
+  Area, Width, Velocity (followed by errors in same order) =    1.59  356.83 7021.81    0.09   34.98   17.49
+ASCII file written:FINAL/F02437+2122_v1.txt
+Hit 1 to save
+: 1
+GBTIDL -> fit1,50
+F02512+1446
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58220759  Tcal ratio is       1.1537960
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59581113  Tcal ratio is       1.1807549
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+    -0.034668432     0.025340332
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> replace,174
+GBTIDL -> replace,411
+GBTIDL -> fit2
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 13
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1 
+GBTIDL -> fit3
+F02512+1446       9354.0004       83.776318
+Continuum Level    -0.035030924
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      491       42      532      8209.7      10559.  -0.0048342   0.0044941
+
+                       Mean      Median         RMS    Variance        Area
+                -4.9141E-06 -4.9375E-05   0.0016090  2.5890E-06   -0.011658
+RMS    0.0016090430
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       62      281      342      9116.5      9408.8  -0.0033065   0.0044941
+
+                       Mean      Median         RMS    Variance        Area
+                  0.0010211   0.0010325   0.0017056  2.9091E-06     0.30364
+If non-gauss detection hit 1, if gaus source hit 2, if nondet hit 0
+: 2
+**********************************************************
+Instructions for fitgauss procedure:
+Left Mouse Button: to mark regions to be fit.
+Center Mouse Button: to mark initial guesses (center then width)
+Right Mouse Button: to calculate and show fits
+**********************************************************
+Limits accepted for region        1
+Guesses accepted for gaussian        1
+***** Initial Guesses
+          G#      Height       Center  (km/s)   FWHM  (km/s)
+Init:      1    0.003570         9296.4551         145.0
+
+***** Fitted Gaussians
+        Height                    Center (km/s)               FWHM (km/s)
+ 1    0.003192 ( 0.0003278)     9277.9518 (     5.505)       109.3 (     12.98)
+Click twice to define gmeasure region
+click on the positions for the two peaks
+% AWV: Left edge was not found, using left maximum location.
+                                   Right side fit (a + bx) =   3.78  -0.03
+                                    Left side fit (a + bx) =   2.60   0.02
+                                   Peaks (right then left) =   4.49   4.49
+  Area, Width, Velocity (followed by errors in same order) =    0.37  214.47 9265.19    0.11  100.82   50.41
+ASCII file written:FINAL/F02512+1446_v1.txt
+Hit 1 to save
+: 1
+GBTIDL -> fit1,52
+F03117+4151
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58487787  Tcal ratio is       1.1571571
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59459583  Tcal ratio is       1.1763836
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+      0.17896481    0.0083833068
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> fit2
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 9
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 9
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F03117+4151       6997.0003       68.815243
+Continuum Level      0.17877850
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      207      340      546      5804.4      6772.5  -0.0034932   0.0037712
+
+                       Mean      Median         RMS    Variance        Area
+                -3.7205E-05 -1.6844E-05   0.0012718  1.6174E-06   -0.036310
+RMS    0.0012717664
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       81      253      333      6805.6      7183.3 -0.00084682    0.013749
+
+                       Mean      Median         RMS    Variance        Area
+                  0.0069853   0.0080579   0.0037372  1.3967E-05      2.6748
+If non-gauss detection hit 1, if gaus source hit 2, if nondet hit 0
+: 1
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  29.03  -0.16
+                                    Left side fit (a + bx) =  26.24   0.15
+                                   Peaks (right then left) =  13.75  10.88
+  Area, Width, Velocity (followed by errors in same order) =    2.67  287.20 6995.07    0.11   11.70    5.85
+Click twice to define gmeasure region
+click on the positions for the two peaks
+% AWV: Right edge was not found, using right maximum location.
+                                   Right side fit (a + bx) =  28.77  -0.16
+                                    Left side fit (a + bx) =  25.61   0.14
+                                   Peaks (right then left) =  13.75  10.88
+  Area, Width, Velocity (followed by errors in same order) =    2.66  331.17 6996.67    0.11   11.97    5.98
+ASCII file written:FINAL/F03117+4151_v1.txt
+Hit 1 to save
+: 1
+GBTIDL -> fit1,56
+F03217+4022
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58577282  Tcal ratio is       1.1571862
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59551472  Tcal ratio is       1.1764312
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+    -0.039491020     0.081157465
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> fit2
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 9
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 13
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F03217+4022       7006.0003       105.14048
+Continuum Level    -0.042355710
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      203      324      526      5907.0      6857.0  -0.0034546   0.0034545
+
+                       Mean      Median         RMS    Variance        Area
+                 5.4048E-06  4.8302E-05   0.0012439  1.5472E-06   0.0051758
+RMS    0.0012438771
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       43      274      316      6894.7      7093.0  -0.0023828   0.0063669
+
+                       Mean      Median         RMS    Variance        Area
+                  0.0018496   0.0015823   0.0021356  4.5608E-06     0.37577
+If non-gauss detection hit 1, if gaus source hit 2, if nondet hit 0
+: 2
+**********************************************************
+Instructions for fitgauss procedure:
+Left Mouse Button: to mark regions to be fit.
+Center Mouse Button: to mark initial guesses (center then width)
+Right Mouse Button: to calculate and show fits
+**********************************************************
+Limits accepted for region        1
+Guesses accepted for gaussian        1
+***** Initial Guesses
+          G#      Height       Center  (km/s)   FWHM  (km/s)
+Init:      1    0.004881         6983.4385         62.10
+
+***** Fitted Gaussians
+        Height                    Center (km/s)               FWHM (km/s)
+ 1    0.004925 ( 0.0003331)     6984.5194 (     2.550)       77.03 (     6.122)
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =   4.52  -0.06
+                                    Left side fit (a + bx) =   5.83   0.08
+                                   Peaks (right then left) =   6.37   6.37
+  Area, Width, Velocity (followed by errors in same order) =    0.39  126.30 6989.22    0.07   27.79   13.90
+ASCII file written:FINAL/F03217+4022_v1.txt
+Hit 1 to save
+GBTIDL -> fit1,60
+F03514+1546
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58474625  Tcal ratio is       1.1570649
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59372015  Tcal ratio is       1.1748220
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+      0.11318859     0.036268051
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> fit2
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 13
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F03514+1546       6661.0003       22.927667
+Continuum Level      0.11785064
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      196      348      543      5485.0      6399.4  -0.0044489   0.0047336
+
+                       Mean      Median         RMS    Variance        Area
+                -8.3771E-05 -9.9016E-05   0.0019744  3.8981E-06   -0.077225
+RMS    0.0019743619
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       72      269      340      6437.0      6771.4  -0.0020695    0.030143
+
+                       Mean      Median         RMS    Variance        Area
+                   0.014502    0.018754   0.0099496  9.8995E-05      4.9231
+If non-Gaussian emission hit 1, if Gaussian Emission source hit 2
+If absorption hit 3 for gaussian abs fit, or if nondetection hit 0
+: 1
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  89.30  -0.71
+                                    Left side fit (a + bx) =  55.02   0.42
+                                   Peaks (right then left) =  30.14  23.80
+  Area, Width, Velocity (followed by errors in same order) =    4.87  212.00 6630.53    0.15    5.50    2.75
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  90.71  -0.71
+                                    Left side fit (a + bx) =  54.20   0.42
+                                   Peaks (right then left) =  30.14  23.47
+  Area, Width, Velocity (followed by errors in same order) =    4.88  239.79 6628.54    0.15    5.50    2.75
+Hit 1 to save
+: 1
+ASCII file written:FINAL/F03514+1546_v1.txt
+
+GBTIDL -> fit1,58
+F03359+1523
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58211621  Tcal ratio is       1.1534005
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59485253  Tcal ratio is       1.1786361
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+      0.10519610     0.026441896
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> fit2
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+
+GBTIDL -> fit3
+F03359+1523       10613.001       87.918677
+Continuum Level      0.10752386
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      203      337      539      9425.8      10398.  -0.0031878   0.0036418
+
+                       Mean      Median         RMS    Variance        Area
+                 7.0076E-05  7.6814E-05   0.0010646  1.1334E-06    0.068661
+RMS    0.0010646236
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       95      228      322      10470.      10925.  -0.0070422   0.0017631
+
+                       Mean      Median         RMS    Variance        Area
+                 -0.0017983  -0.0017121   0.0018106  3.2784E-06    -0.82737
+If non-Gaussian emission hit 1, if Gaussian Emission source hit 2
+If absorption hit 3 for gaussian abs fit, or if nondetection hit 0
+: 3
+**********************************************************
+Instructions for fitgauss procedure:
+Left Mouse Button: to mark regions to be fit.
+Center Mouse Button: to mark initial guesses (center then width)
+Right Mouse Button: to calculate and show fits
+**********************************************************
+Limits accepted for region        1
+Guesses accepted for gaussian        1
+***** Initial Guesses
+          G#      Height       Center  (km/s)   FWHM  (km/s)
+Init:      1   -0.005780         10745.693         89.00
+
+***** Fitted Gaussians
+        Height                    Center (km/s)               FWHM (km/s)
+ 1   -0.004581 ( 0.0002868)     10746.957 (     4.717)       153.6 (     11.11)
+Hit 1 to save
+: 1
+ASCII file written:FINAL/F03359+1523_v1.txt
+GBTIDL -> fit1,62
+F03582+6012
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58220926  Tcal ratio is       1.1538470
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59598262  Tcal ratio is       1.1811437
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+      0.22201749    0.0051704813
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> replace,101,102
+GBTIDL -> fit2
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 9
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F03582+6012       8997.0004       53.520646
+Continuum Level      0.22194612
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      213       36      248      9209.7      10229.  -0.0041961   0.0036452
+
+                       Mean      Median         RMS    Variance        Area
+                -3.0019E-05  6.0761E-05   0.0015534  2.4132E-06   -0.030830
+RMS    0.0015534319
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       99      270      368      8635.9      9104.3  -0.0017921    0.014426
+
+                       Mean      Median         RMS    Variance        Area
+                  0.0056644   0.0042496   0.0041842  1.7507E-05      2.6843
+If non-Gaussian emission hit 1, if Gaussian Emission source hit 2
+If absorption hit 3 for gaussian abs fit, or if nondetection hit 0
+: 2
+**********************************************************
+Instructions for fitgauss procedure:
+Left Mouse Button: to mark regions to be fit.
+Center Mouse Button: to mark initial guesses (center then width)
+Right Mouse Button: to calculate and show fits
+**********************************************************
+Limits accepted for region        1
+Guesses accepted for gaussian        1
+***** Initial Guesses
+          G#      Height       Center  (km/s)   FWHM  (km/s)
+Init:      1     0.01217         8867.2383         182.5
+
+***** Fitted Gaussians
+        Height                    Center (km/s)               FWHM (km/s)
+ 1     0.01188 ( 0.0003674)     8865.3296 (     3.140)       207.0 (     7.399)
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  10.04  -0.04
+                                    Left side fit (a + bx) =  10.34   0.04
+                                   Peaks (right then left) =  14.43  12.78
+  Area, Width, Velocity (followed by errors in same order) =    2.66  360.39 8864.84    0.14   51.02   25.51
+Hit 1 to save
+: 1
+ASCII file written:FINAL/F03582+6012_v1.txt
+GBTIDL -> fit1,64
+F04097+0525
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58286053  Tcal ratio is       1.1539387
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59131840  Tcal ratio is       1.1706835
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+     0.082823822     0.089785921
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> replace,493,495
+GBTIDL -> fit2
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F04097+0525       5303.0003       22.931952
+Continuum Level     0.088082449
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      189       49      237      5562.1      6444.0  -0.0055064   0.0067883
+
+                       Mean      Median         RMS    Variance        Area
+                -3.0509E-05 -3.1233E-05   0.0023788  5.6586E-06   -0.027128
+RMS    0.0023787885
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      107      235      341      5076.4      5571.4  -0.0022713    0.044293
+
+                       Mean      Median         RMS    Variance        Area
+                   0.023651    0.027239    0.012627  0.00015943      11.838
+If non-Gaussian emission hit 1, if Gaussian Emission source hit 2
+If absorption hit 3 for gaussian abs fit, or if nondetection hit 0
+: 1
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) = 109.40  -0.51
+                                    Left side fit (a + bx) = 121.85   0.54
+                                   Peaks (right then left) =  27.85  44.29
+  Area, Width, Velocity (followed by errors in same order) =   11.82  375.51 5320.63    0.24    6.40    3.20
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) = 111.61  -0.51
+                                    Left side fit (a + bx) = 119.55   0.54
+                                   Peaks (right then left) =  27.85  44.29
+  Area, Width, Velocity (followed by errors in same order) =   11.84  413.75 5316.35    0.23    6.40    3.20
+Hit 1 to save
+: 1
+GBTIDL -> fit1,66
+F04118-3207
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59107902  Tcal ratio is       1.1526904
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.60004157  Tcal ratio is       1.1701687
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+    0.0031149147     0.018997615
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> replace,113,119
+GBTIDL -> replace,446    
+GBTIDL -> fit1,66
+F04118-3207
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59107902  Tcal ratio is       1.1526904
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.60004157  Tcal ratio is       1.1701687
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+    0.0031149147     0.018997615
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> replace,113,119
+GBTIDL -> replace,446    
+GBTIDL -> fit2
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 13
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 15
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F04118-3207       3568.0002       34.398747
+Continuum Level    0.0018036905
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      482       47      528      2484.4      4705.3  -0.0056748   0.0060017
+
+                       Mean      Median         RMS    Variance        Area
+                 0.00010691  8.7543E-05   0.0019656  3.8635E-06     0.23967
+RMS    0.0019655746
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      484       48      531      2470.6      4700.6  -0.0056748   0.0060017
+
+                       Mean      Median         RMS    Variance        Area
+                 0.00010863  8.7543E-05   0.0019641  3.8575E-06     0.24453
+If non-Gaussian emission hit 1, if Gaussian Emission source hit 2
+If absorption hit 3 for gaussian abs fit, or if nondetection hit 0
+: 0
+Hit 1 to save
+: 1
+ASCII file written:FINAL/F04118-3207_v1.txt
+F04191-1855
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58600619  Tcal ratio is       1.1539475
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59948290  Tcal ratio is       1.1804854
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+     0.057694132     0.070604772
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> replace,237,238
+GBTIDL -> fit2
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 15
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 17
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 19
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 18
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F04191-1855       9650.0005       38.219942
+Continuum Level     0.059130822
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      210      342      551      8412.9      9412.1  -0.0038569   0.0036260
+
+                       Mean      Median         RMS    Variance        Area
+                -8.8473E-05 -5.0015E-05   0.0015258  2.3282E-06   -0.089111
+RMS    0.0015258355
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       51      239      289      9666.5      9906.9 -0.00026447    0.030892
+
+                       Mean      Median         RMS    Variance        Area
+                   0.010552   0.0071017   0.0091848  8.4361E-05      2.5894
+If non-Gaussian emission hit 1, if Gaussian Emission source hit 2
+If absorption hit 3 for gaussian abs fit, or if nondetection hit 0
+: 2
+**********************************************************
+Instructions for fitgauss procedure:
+Left Mouse Button: to mark regions to be fit.
+Center Mouse Button: to mark initial guesses (center then width)
+Right Mouse Button: to calculate and show fits
+**********************************************************
+Limits accepted for region        1
+Guesses accepted for gaussian        1
+***** Initial Guesses
+          G#      Height       Center  (km/s)   FWHM  (km/s)
+Init:      1     0.02864         9826.0830         82.13
+
+***** Fitted Gaussians
+        Height                    Center (km/s)               FWHM (km/s)
+ 1     0.02641 ( 0.0008409)     9813.6644 (     1.363)       87.28 (     3.209)
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  41.30  -0.49
+                                    Left side fit (a + bx) =  20.15   0.20
+                                   Peaks (right then left) =  30.89  30.89
+  Area, Width, Velocity (followed by errors in same order) =    2.59  145.12 9799.00    0.09    8.36    4.18
+Hit 1 to save
+: 1
+ASCII file written:FINAL/F04191-1855_v1.txt
+GBTIDL -> fit1,70
+F04271+3849
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58377108  Tcal ratio is       1.1547233
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59220463  Tcal ratio is       1.1714052
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+      0.17832921    0.0063285547
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> fit2
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 15
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 17
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 21
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 15
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 0
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 17
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> stats
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      479       59      537      4498.7      6735.4  -0.0065614   0.0060689
+
+                       Mean      Median         RMS    Variance        Area
+                 9.5943E-06  8.7010E-05   0.0018363  3.3720E-06    0.021663
+GBTIDL -> fit3
+F04271+3849       5639.0003       40.939563
+Continuum Level      0.17786362
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      489       49      537      4498.7      6782.5  -0.0065614   0.0060689
+
+                       Mean      Median         RMS    Variance        Area
+                -1.9987E-06  7.8319E-05   0.0018267  3.3368E-06  -0.0046084
+RMS    0.0018266785
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      455       75      529      4535.8      6660.0  -0.0065614   0.0060689
+
+                       Mean      Median         RMS    Variance        Area
+                -6.4259E-06  8.4192E-05   0.0018489  3.4183E-06   -0.013775
+If non-Gaussian emission hit 1, if Gaussian Emission source hit 2
+If absorption hit 3 for gaussian abs fit, or if nondetection hit 0
+: 0
+Hit 1 to save
+: 1
+ASCII file written:FINAL/F04271+3849_v1.txt
+F04315-0840
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58521385  Tcal ratio is       1.1530424
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59383573  Tcal ratio is       1.1700301
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+      0.21720252    0.0097897937
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> replace,375,377
+GBTIDL -> replace,381
+GBTIDL -> replace,373,382
+GBTIDL -> fit2
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 17
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 19
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 21
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F04315-0840       4776.0002       45.868038
+Continuum Level      0.21887897
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      215       52      266      52.000      266.00  -0.0038798   0.0036680
+
+                       Mean      Median         RMS    Variance        Area
+                -1.6397E-05  6.4331E-05   0.0016055  2.5775E-06  -0.0035254
+RMS    0.0016054506
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       53      275      327      275.00      327.00 -0.00010921    0.019318
+
+                       Mean      Median         RMS    Variance        Area
+                  0.0087649   0.0096633   0.0046858  2.1957E-05     0.46454
+If non-Gaussian emission hit 1, if Gaussian Emission source hit 2
+If absorption hit 3 for gaussian abs fit, or if nondetection hit 0
+: 1
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  30.44  -0.26
+                                    Left side fit (a + bx) =  49.67   0.45
+                                   Peaks (right then left) =  14.80  19.32
+  Area, Width, Velocity (followed by errors in same order) =    2.18  181.60 4733.52    0.11    7.08    3.54
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  30.02  -0.26
+                                    Left side fit (a + bx) =  50.40   0.45
+                                   Peaks (right then left) =  14.80  19.32
+  Area, Width, Velocity (followed by errors in same order) =    2.16  208.50 4735.14    0.11    7.08    3.54
+Hit 1 to save
+: 1
+ASCII file written:FINAL/F04315-0840_v1.txt
+GBTIDL -> fit1,74
+F04326+1904
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58423944  Tcal ratio is       1.1567826
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59518302  Tcal ratio is       1.1784506
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+      0.11180025     0.056074081
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> fit2
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F04326+1904       7408.0004       22.927726
+Continuum Level      0.10677793
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      169      385      553      6179.2      6970.3  -0.0049525   0.0052602
+
+                       Mean      Median         RMS    Variance        Area
+                 8.1052E-05  3.0202E-05   0.0018962  3.5956E-06    0.064667
+RMS    0.0018962110
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      157      222      378      7003.4      7741.8  -0.0023658    0.046945
+
+                       Mean      Median         RMS    Variance        Area
+                   0.027562    0.031434    0.012820  0.00016436      20.532
+If non-Gaussian emission hit 1, if Gaussian Emission source hit 2
+If absorption hit 3 for gaussian abs fit, or if nondetection hit 0
+: 1
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  52.21  -0.11
+                                    Left side fit (a + bx) = 110.23   0.31
+                                   Peaks (right then left) =  42.45  46.94
+  Area, Width, Velocity (followed by errors in same order) =   20.45  557.91 7390.26    0.23   17.63    8.81
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  80.36  -0.23
+                                    Left side fit (a + bx) = 157.39   0.45
+                                   Peaks (right then left) =  28.12  43.93
+  Area, Width, Velocity (followed by errors in same order) =   20.45  659.69 7409.41    0.23    9.33    4.66
+Hit 1 to save
+: 1
+ASCII file written:FINAL/F04326+1904_v1.txt
+GBTIDL -> fit1,76
+F04502-3304
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59305405  Tcal ratio is       1.1545890
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.60164286  Tcal ratio is       1.1713101
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+    -0.022704778     0.019733243
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> fit2
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 3
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F04502-3304       5621.0003       22.931885
+Continuum Level    -0.022967310
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      508       40      547      4434.4      6806.7  -0.0070409   0.0058218
+
+                       Mean      Median         RMS    Variance        Area
+                 1.1905E-06  0.00022471   0.0025575  6.5407E-06   0.0028519
+RMS    0.0025574849
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      517       37      553      4406.6      6820.9  -0.0070409   0.0058218
+
+                       Mean      Median         RMS    Variance        Area
+                 2.0203E-05  0.00024285   0.0025583  6.5448E-06    0.049259
+If non-Gaussian emission hit 1, if Gaussian Emission source hit 2
+If absorption hit 3 for gaussian abs fit, or if nondetection hit 0
+: 0
+Hit 1 to save
+: 1
+ASCII file written:FINAL/F04502-3304_v1.txt
+GBTIDL -> fit1,78 
+F05053-0805
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58476819  Tcal ratio is       1.1527532
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59342733  Tcal ratio is       1.1698229
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+     0.066023571     0.051006402
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> replace,309,310
+GBTIDL -> fit3
+F05053-0805       4440.0002       22.932802
+Continuum Level     0.062822962
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      197       37      233      37.000      233.00  -0.0043685   0.0053137
+
+                       Mean      Median         RMS    Variance        Area
+                 3.4606E-07 -7.2767E-05   0.0019559  3.8256E-06  6.8174E-05
+RMS    0.0019559217
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       97      238      334      238.00      334.00 -0.00057591    0.036815
+
+                       Mean      Median         RMS    Variance        Area
+                   0.020073    0.023038    0.010192  0.00010387      1.9471
+If non-Gaussian emission hit 1, if Gaussian Emission source hit 2
+If absorption hit 3 for gaussian abs fit, or if nondetection hit 0
+: 1
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) = 124.46  -0.60
+                                    Left side fit (a + bx) = 142.33   0.73
+                                   Peaks (right then left) =  36.82  25.71
+  Area, Width, Velocity (followed by errors in same order) =    9.04  356.45 4459.27    0.19    4.21    2.11
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) = 122.16  -0.60
+                                    Left side fit (a + bx) = 145.14   0.73
+                                   Peaks (right then left) =  36.82  25.71
+  Area, Width, Velocity (followed by errors in same order) =    9.02  383.60 4463.11    0.18    4.21    2.11
+Hit 1 to save
+: 1
+ASCII file written:FINAL/F05053-0805_v1.txt
+GBTIDL -> fit1,80
+F05054+1718
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58297498  Tcal ratio is       1.1542541
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59140857  Tcal ratio is       1.1709521
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+      0.29647282     0.057218801
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> replace,519
+GBTIDL -> replace ,528
+GBTIDL -> fit1,80
+F05054+1718
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58297498  Tcal ratio is       1.1542541
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59140857  Tcal ratio is       1.1709521
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+      0.29647282     0.057218801
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> replace,519
+GBTIDL -> replace ,528
+GBTIDL -> fit2
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 17
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 15
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 11
+Enter 0 to enter different polonomial or 1 if done
+: 0
+enter baseline fit
+: 13
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F05054+1718       5453.0003       53.508508
+Continuum Level      0.29662992
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      467       62      528      4355.8      6534.0  -0.0062495   0.0050598
+
+                       Mean      Median         RMS    Variance        Area
+                -6.8216E-06 -1.1047E-05   0.0018500  3.4223E-06   -0.014997
+RMS    0.0018499524
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      469       63      531      4341.9      6529.3  -0.0062495   0.0050598
+
+                       Mean      Median         RMS    Variance        Area
+                -1.6421E-05 -1.5437E-05   0.0018458  3.4069E-06   -0.036255
+If non-Gaussian emission hit 1, if Gaussian Emission source hit 2
+If absorption hit 3 for gaussian abs fit, or if nondetection hit 0
+: 0
+Hit 1 to save
+: 1
+ASCII file written:FINAL/F05054+1718_v1.txt
+GBTIDL -> fit1,82
+F05081+7936
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58545812  Tcal ratio is       1.1537574
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59559478  Tcal ratio is       1.1737336
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+     0.074053825    0.0083457586
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> fit2
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F05081+7936       16090.001       81.092033
+Continuum Level     0.073938164
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      206      336      541      14851.      15872.  -0.0038538   0.0030273
+
+                       Mean      Median         RMS    Variance        Area
+                -1.8922E-05  5.6145E-05   0.0010441  1.0902E-06   -0.019485
+RMS    0.0010441281
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      104      224      327      15917.      16433.  -0.0011221   0.0042139
+
+                       Mean      Median         RMS    Variance        Area
+                  0.0016130   0.0017935   0.0012548  1.5746E-06     0.84154
+If non-Gaussian emission hit 1, if Gaussian Emission source hit 2
+If absorption hit 3 for gaussian abs fit, or if nondetection hit 0
+: 2
+**********************************************************
+Instructions for fitgauss procedure:
+Left Mouse Button: to mark regions to be fit.
+Center Mouse Button: to mark initial guesses (center then width)
+Right Mouse Button: to calculate and show fits
+**********************************************************
+Limits accepted for region        1
+Guesses accepted for gaussian        1
+***** Initial Guesses
+          G#      Height       Center  (km/s)   FWHM  (km/s)
+Init:      1    0.003144         16211.066         447.3
+
+***** Fitted Gaussians
+        Height                    Center (km/s)               FWHM (km/s)
+ 1    0.002347 ( 0.0001980)     16216.909 (     14.18)       343.5 (     34.13)
+Click twice to define gmeasure region
+click on the positions for the two peaks
+% AWV: Right edge was not found, using right maximum location.
+                                   Right side fit (a + bx) =   2.31  -0.01
+                                    Left side fit (a + bx) =  17.78   0.06
+                                   Peaks (right then left) =   4.09   4.21
+  Area, Width, Velocity (followed by errors in same order) =    0.83  605.9616228.65    0.13  186.81   93.41
+Hit 1 to save
+: 1 
+ASCII file written:FINAL/F05081+7936_v1.txt
+GBTIDL -> fit1,84
+F05083+2441
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58372856  Tcal ratio is       1.1573018
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59317344  Tcal ratio is       1.1760272
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+    -0.054241818     0.050394049
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> fit2
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F05083+2441       6913.0003       22.931932
+Continuum Level    -0.056692454
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      199      353      551      5697.6      6627.4  -0.0050790   0.0052393
+
+                       Mean      Median         RMS    Variance        Area
+                 0.00015268  0.00028048   0.0019528  3.8135E-06     0.14312
+RMS    0.0019528200
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       91      245      335      6712.2      7137.0  -0.0030426    0.022359
+
+                       Mean      Median         RMS    Variance        Area
+                   0.010619    0.010884   0.0065651  4.3100E-05      4.5669
+If non-Gaussian emission hit 1, if Gaussian Emission source hit 2
+If absorption hit 3 for gaussian abs fit, or if nondetection hit 0
+: 1
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  33.73  -0.17
+                                    Left side fit (a + bx) =  16.35   0.06
+                                   Peaks (right then left) =  21.94  17.41
+  Area, Width, Velocity (followed by errors in same order) =    4.57  277.55 6925.67    0.17   33.44   16.72
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  37.16  -0.17
+                                    Left side fit (a + bx) =  15.10   0.06
+                                   Peaks (right then left) =  22.36  17.41
+  Area, Width, Velocity (followed by errors in same order) =    4.54  386.75 6905.63    0.18   33.44   16.72
+Hit 1 to save
+: 1
+ASCII file written:FINAL/F05083+2441_v1.txt
+GBTIDL -> fit1,86
+F05129+5128
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58376800  Tcal ratio is       1.1552035
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59690067  Tcal ratio is       1.1811914
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+      0.19421038      0.12490211
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> fit2
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F05129+5128       8223.0004       42.856095
+Continuum Level      0.19380029
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      218      336      553      6987.7      8015.8  -0.0043077   0.0038831
+
+                       Mean      Median         RMS    Variance        Area
+                 8.0438E-06  3.8852E-05   0.0015255  2.3271E-06   0.0083349
+RMS    0.0015254784
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       98      226      323      8077.6      8539.5  -0.0011635    0.013093
+
+                       Mean      Median         RMS    Variance        Area
+                  0.0064809   0.0070070   0.0036952  1.3655E-05      3.0292
+If non-Gaussian emission hit 1, if Gaussian Emission source hit 2
+If absorption hit 3 for gaussian abs fit, or if nondetection hit 0
+: 1
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  18.68  -0.08
+                                    Left side fit (a + bx) =  26.99   0.13
+                                   Peaks (right then left) =  13.09  11.59
+  Area, Width, Velocity (followed by errors in same order) =    2.99  328.62 8309.16    0.14   22.54   11.27
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =  17.83  -0.08
+                                    Left side fit (a + bx) =  28.43   0.13
+                                   Peaks (right then left) =  13.09  11.59
+  Area, Width, Velocity (followed by errors in same order) =    2.99  395.43 8319.96    0.14   22.54   11.27
+Hit 1 to save
+: 1
+ASCII file written:FINAL/F05129+5128_v1.txt
+GBTIDL -> fit1,88
+F05187-1017
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.58652825  Tcal ratio is       1.1546220
+% READCOL: Format keyword not supplied - All columns assumed floating point
+% READCOL: 391 valid lines read
+Scaling data by [Jy/K]      0.59999950  Tcal ratio is       1.1811411
+% ACCUMAVE: Average of :           2 spectra
+Rough continuum levels in K and difference between pols [K]:
+      0.10868992     0.019194545
+Smoothing the data to 4.5km/s [7channels]
+GBTIDL -> replace,224,225
+GBTIDL -> fit2
+set baseline region
+Use the left button to mark the region and the right button to exit
+enter baseline fit
+: 7
+Enter 0 to enter different polonomial or 1 if done
+: 1
+enter 0 to repeat or 1 if done
+: 1
+GBTIDL -> fit3
+F05187-1017       8472.0004       45.868140
+Continuum Level      0.10696664
+Select RMS region
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      206      333      538      7305.7      8278.7  -0.0045568   0.0050001
+
+                       Mean      Median         RMS    Variance        Area
+                 8.0108E-05  0.00012154   0.0016043  2.5737E-06    0.078572
+RMS    0.0016042819
+Measure Line emission or noise region again if non-detection
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+       44      281      324      8321.6      8526.5  -0.0030140   0.0058241
+
+                       Mean      Median         RMS    Variance        Area
+                  0.0012026   0.0011525   0.0017059  2.9101E-06     0.25235
+If non-Gaussian emission hit 1, if Gaussian Emission source hit 2
+If absorption hit 3 for gaussian abs fit, or if nondetection hit 0
+: 2
+**********************************************************
+Instructions for fitgauss procedure:
+Left Mouse Button: to mark regions to be fit.
+Center Mouse Button: to mark initial guesses (center then width)
+Right Mouse Button: to calculate and show fits
+**********************************************************
+Limits accepted for region        1
+Guesses accepted for gaussian        1
+***** Initial Guesses
+          G#      Height       Center  (km/s)   FWHM  (km/s)
+Init:      1    0.003777         8402.2266         112.9
+
+***** Fitted Gaussians
+        Height                    Center (km/s)               FWHM (km/s)
+ 1    0.002846 ( 0.0004966)     8404.8821 (     6.937)       81.08 (     16.36)
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) =   3.00  -0.03
+                                    Left side fit (a + bx) =   2.00   0.02
+                                   Peaks (right then left) =   5.82   5.82
+  Area, Width, Velocity (followed by errors in same order) =    0.26  154.08 8393.48    0.10  121.28   60.64
+Hit 1 to save
+: 1
+ASCII file written:FINAL/F05187-1017_v1.txt

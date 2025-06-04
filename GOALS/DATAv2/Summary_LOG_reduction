@@ -1,0 +1,912 @@
+Note that continuum level put back into the Ascii spectra but not the
+FITS files which saved the baseline subtracted image.
+
+Observations 
+
+Linear pol, setup ect.
+
+Data Reduction and Measurements
+
+The reduction and measurements were made interactively within GBTIDL
+(Marganii 2006) using speciallized GBTIDL scripts designed for this
+program.  Data were reduce using standard Tsys(ON-OFF)/OFF GBT
+calibration spectral line red uction (Braatz 2006).  Scan pairs with
+bad baselines were automatically flagged by checking the resulting RMS
+levels of the baselines.  The data for each source from all available
+sessions were combined. The results for each polarization were reduced
+separately and compared visually to verify spectral features.  The
+default "TCAL" noise diode levels as a function of frequency were
+adjusted to match the calibration measurements derived for this
+project using observations of the flux calibrator 3C48 (Perley Butler
+2015).  The estimated absolute uncertainty on the resulting
+calibration is 10%.
+
+After the data were corrected for atmospheric attenuation using the
+internal Observatory weather database and the calibration was
+adjusted, the data for the two polarizations were combined and placed
+on the flux density scale.  Narrow-RFI channels were removed by
+interpolating across the narrow feature.  The data were smoothed by 7
+channels (4.5 km/s) using the GSMOOTH Gaussian smoothing routine.  A
+low order (3-5) polynomial baseline was removed from the
+spectral-bandpass, and the continuum level was recorded.  The RMS of
+the line-free regions of the data and the total emission or absorption
+was measured by summing over the spectral features.  For sources
+showing deep absorption within their emission regions, the negative
+absorption channels (after baseline removal) were set to set to zero
+to provide a lower limit to the total amount of line emssion.
+Gaussian profiles were fitted with a Gaussian profile to derive the
+line width at the 50% of the fitted peak, and the GMEASURE routine to
+linearly interpolation the outter wings of the profile to derive the
+line width at the 20% level.  For non-Gaussian profiles (the majority
+of the sources), the edges of the profiles were measured with GMEASURE
+to derive both the 50% and 20% line widths.  Similar methods were used
+for both the emission and absoprtion profiles.  The measurements were
+made interactively by viewing each spectrum and clicking on the
+appropriate channels to set the measurement and fitting parameters.
+For consistency and to provide a uniform method for making the
+measurements, specialize software was developed to streamline the
+interactive procedures.
+
+
+======================================
+2011 NOTES
+#
+/disk1/AGBT10B14 is a copy of /disk1/gbt10B14 which included Diana's work
+Diana flagged through session 28.   She flagged too much on bright
+continuum source F03164+4119 (need to redo)
+
+Coordinates have been fixed (open office converted some declinations
+into times).   These bad data marked in book and in
+/disk1/AGBT10B14/ascii/sessions.ascii in ( )
+
+Exposure time for one set ~8min =OFFON time (2 polarizations and two
+overlapping bandwidths).
+
+
+
+Upto 5 sessions to date
+fmt='a,a,i,i,a,i,i,a,i,i,a,i,i,a,i,i'
+readcol,'REDUC/sessions_list',FORMAT=fmt,n1,s1,b1,e1,s2,b2,e2,s3,b3,e3,s4,b4,e4,s5,b5,e5
+
+162 Galaxies
+
+Write data into 3 data files each with 54 galaxies
+
+(note gbtidl feature cannot have same input and output names for files)
+
+
+GBTIDL -> dogroups,'reduc1'
+rawcombine(1,2,3).fits  (combined polarizations)
+rawpol(1,2,3).fits (each polarization)
+
+-------------
+2011.04.12
+
+Visit by Sabrina
+
+Flux calibration
+
+Jy=~ 1.138*Ta*(1Jy/2K)
+
+
+(1.138 is correction for Tcal table)
+
+
+Data manually flagged through session 28 via Diana.
+(note that some flagged files x out??)
+
+
+Use someflags to autoflag (finish flagging sessions 33,34,35).
+/disk1/AGBT10B14/data/BLANK_flags
+FLAGS_0.1rms   (clipped data with baseline structures larger than 
+0.1 K rms)  Narrow RFI remains in the data.
+
+
+update REDUC/sessions.list to include last session
+
+run dogroups,'reduc2'  (with auto 0.1rms flags updated for all data)
+
+infile,'reduc2/rawcombine1.fits'
+list
+
+Additional flagging required (do manually).
+
+
+======================================
+
+
+
+GOALS HI project
+
+AGBT10B14 is copy of data from /molok/disk1 which includes Diana,
+Sabrina's and my work over the years.
+
+========
+Brief History:
+
+AGBT10B14 project   
+
+2010 Ron helped with observing scripts/methods.
+
+2010 Data taken in 2010 with Diana as an REU student (I did many of the
+observations before she arrived).
+
+2011 Sabrina worked with Diana in 2011, additional flagging and RFI
+manual removal.
+
+2018 I re-did the reduction to include the continuum level as well as
+derived calibration factors in 2018.  I made scripts to carryout
+reduction/fitting in a systematic way.
+
+2021 Re-started project  
+
+Copied data to Euler and updated scripts for data paths.
+
+2022 Observations of 3c84
+
+2023 Reduction of 3c84 (notebook 71-73)
+
+
+======
+
+Reduction 
+
+dogroups,'reduc2' which uses the auto 0.1rms flags.
+Additional flagging manually done.
+
+See OLD/NOTES_2017 for calibration and data reduction/measurement methods.
+Can use different flagging files and re-do combination.
+
+
+
+Steps for calibration and measurements:
+
+filein,'reduc2/rawpol1.fits'
+
+(0) fit0,sc compare each polarization separately to confirm baseline regions and line features.
+
+(1) fit1,sc  copy to container-10 without replacement to redo RFI removal
+Calibrates and combines both polarizations, corrections for ATM.
+Does smoothing to make RFI removal easier
+plots result
+
+
+(2) zoom and replace narrow RFI interactively 
+
+Middle mouse button around RFI and use 
+
+replace,bchan,echan to interpolate across RFI, where bchan is first
+bad channel and echan is last bad channel
+
+click unzoom button
+
+(3) fit2 does baseline removal with copy of input in container-11 and continuum as container-3
+
+(4) fit3 does measurements with input in container-12 and outputs measurements and ascii spectra
+
+Reduction log at FINAL/LOG_reduction
+
+*******************************************************************************88
+2017 NOTES:
+
+
+Should correct calibration for noise diodes as function of frequency
+for each of the polarizations.
+
+Save combination of each polarization in the reductions.
+
+(1) First step is to flag all the bad data then run dogroups.pro for the data
+reduction for one source at a time.
+
+'REDUC/sessions_list' has all the scan numbers per session listed
+
+dogroups.pro is from 2011Apr12
+
+data/AGBT10B_014* is all the raw SDFITS and FLAG files:
+
+drwxr-xr-x 2    3908 gbguest       4096 Jun 17  2011 FLAGS_DSG_v3/
+drwxr-xr-x 2    3908 gbguest       4096 Jun  9  2011 FLAGS_DSG_v2/
+drwxr-xr-x 2 dfrayer gbstaff       4096 Jun  8  2011 FLAGS_DSG/
+drwxr-xr-x 2 dfrayer gbstaff       4096 Apr 12  2011 FLAGS_0.1rms/
+drwxr-xr-x 2 dfrayer gbstaff       4096 Apr 12  2011 BLANK_flags/
+drwxr-xr-x 2 dfrayer gbstaff       4096 Oct 23  2010 FLAGS_diana/
+
+I think the "DSG" includes manual flagging by Sabrina.
+
+Use gmeasure.pro to compute area and line center, e.g.,
+GBTIDL -> gmeasure,4,0.2,rms=0.01
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) = 189.28  -0.91
+                                    Left side fit (a + bx) = 278.54   1.39
+                                   Peaks (right then left) =  75.56  57.60
+  Area, Width, Velocity (followed by errors in same order) =   23.59  385.99 5418.61    0.35   13.10    6.55
+
+The latest data may be reduc5 which was copied to REDUC5.  Note that
+the brightest continuum sources have all data blanked.... due to
+baseline issues.
+
+#####
+
+Calibration of Noise Diodes as function of frequency Session 14 uses
+3c48 and includes calibration scan with and without the Notch filter.
+
+Above ~20000 km/s should not use notch filter.
+# red= really high-z, remove notch filter (done as is non detections)
+   F07251-0248  07:27:37.5   -02:54:54    26247.   red       6  6 
+   F12112+0305  12:13:46.0   +02:48:38    21978.   red     6  6
+   F14348-1447  14:37:38.4   -15:00:22    24802.   red      6  6 
+   F19297-0406  19:32:21.3   -03:59:56    25701.   red      6  6 
+   F22491-1808  22:51:49.3   -17:52:23    23312.   red      6   6 
+   F23365+3604  23:39:01.3   +36:21:08    19331.   red      6  6
+
+Note calibration scans taken at 1380 MHz rest (mid-range).
+Notch filter rolls off < 1.35 GHz (>15646)
+Calibratable down to 1.32 GHz with Notch filter (<22800 km/s)
+Ok at 1.34 GHz <18000 km/s   No sources between 18000km/s and 19331 km/s
+so confirm data taken ok for calibration.
+(most distance source at 1306 MHz)
+
+
+Used 12.5MHz bandwidth and will adopt average Tcal over 12.5 MHz, so
+can smooth 200MHz 8192 channel calibration data by a lot.  Default
+Tcal uses central 80% of band for tcal value (i.e. +/-5MHz). Derive
+Tcal on ~0.5 MHz increment smooth/decimate by ~20channels
+Then 10MHz is additional smoothing by 20x.
+
+
+GBTIDL -> tcalspec,168,167,plnum=0
+GBTIDL -> gsmooth,21,/decimate
+GBTIDL -> tcalspec,168,167,plnum=0
+Scan:   168 (IF:0 FD:0 PL:0)    Tsys:  38.60
+Scan:   167 (IF:0 FD:0 PL:0)    Tsys:  14.60
+Scan:   167 (IF:0 FD:0 PL:0)    Tsys:  14.60
+Scan:   167 (IF:0 FD:0 PL:0)    Tsys:  14.60
+GBTIDL -> gsmooth,41,/decimate
+GBTIDL -> print,n_elements(getdata(0))
+         200
+(smooth to 1 MHz resolution)
+
+
+
+;;filter to remove RFI spikes 
+vec=getdata(0)
+hpfilt,vec,20,3,nvec,mvec
+setdata,mvec
+;;smooth and decimate for limiting output
+gsmooth,5,/decimate
+
+compute_tcal,'TCAL2010_L_YY_NOTCH'
+IDL> INfile='2005_05_27_00:00:00.fits'
+ftab_ext,INfile,[1,3],freq,tcal,exten_no=1  
+exten_no=1 is Y
+exten_no=3 is X
+oplot,freq/1.e9,tcal,psym=4
+
+GBTIDL -> hpfilt,vec,15,3,nvec,mvec
+GBTIDL -> setdata,mvec
+GBTIDL -> copy,0,2          
+GBTIDL -> gsmooth,21,/decimate 
+GBTIDL -> gsmooth,5
+GBTIDL -> copy,2,0
+GBTIDL -> gsmooth,21,/decimate
+GBTIDL -> gsmooth,10
+
+Previous calibration used:
+Jy=~ 1.138*Ta*(1Jy/2K)
+(1.138 is correction for Tcal table)
+Verified calibration here.
+14% calibration off in X on avg
+12% calibraiton off in Y on avg
+factor 1.12*1.016*Ta*(1Jy/2K) ==>1.138 average factor
+Ta'/Ta = 1.016+/-0.005  (0.5% uncertainty -- ignore)
+Adopt 1.016 ATM correction
+
+
+
+typical airmass varies from 2.0 --> 1.3
+ATM correction 1.011 --> 1.017
+Or more widely  Airmass = 3.0 --> 1.2
+1.026 1.011
+
+
+so Snu = 1.016*Ta*(1.0Jy/2.0K)* Tcal
+
+GBTIDL -> tcalspec,168,167,plnum=0
+Scan:   168 (IF:0 FD:0 PL:0)    Tsys:  38.60
+Scan:   167 (IF:0 FD:0 PL:0)    Tsys:  14.60
+Scan:   167 (IF:0 FD:0 PL:0)    Tsys:  14.60
+Scan:   167 (IF:0 FD:0 PL:0)    Tsys:  14.60
+GBTIDL -> compute_tcal,'TCAL2010_L_YY_NOTCH'
+GBTIDL -> tcalspec,168,167,plnum=1
+Scan:   168 (IF:0 FD:0 PL:1)    Tsys:  39.55
+Scan:   167 (IF:0 FD:0 PL:1)    Tsys:  15.03
+Scan:   167 (IF:0 FD:0 PL:1)    Tsys:  15.03
+Scan:   167 (IF:0 FD:0 PL:1)    Tsys:  15.03
+GBTIDL -> compute_tcal,'TCAL2010_L_XX_NOTCH'
+GBTIDL -> tcalspec,170,169,plnum=1
+Scan:   170 (IF:0 FD:0 PL:1)    Tsys:  39.71
+Scan:   169 (IF:0 FD:0 PL:1)    Tsys:  15.25
+Scan:   169 (IF:0 FD:0 PL:1)    Tsys:  15.25
+Scan:   169 (IF:0 FD:0 PL:1)    Tsys:  15.25
+GBTIDL -> compute_tcal,'TCAL2010_L_XX_NONOTCH'
+GBTIDL -> tcalspec,170,169,plnum=0
+Scan:   170 (IF:0 FD:0 PL:0)    Tsys:  42.18
+Scan:   169 (IF:0 FD:0 PL:0)    Tsys:  15.01
+Scan:   169 (IF:0 FD:0 PL:0)    Tsys:  15.01
+Scan:   169 (IF:0 FD:0 PL:0)    Tsys:  15.01
+GBTIDL -> compute_tcal,'TCAL2010_L_YY_NONOTCH'
+
+Y-cal factor off by 10% (1.10)
+X-cal factor off by 14% (1.14)
+
+
+2.0 corrected for ATM is 1.97 factor
+
+
+###
+Snu = Ta*(1Jy/1.97K)*tcal/!g.s[0].mean_tcal
+Need to compute tcal for all galaxies observed.
+###
+
+reduc2 uses auto flagging of rms > 0.1
+REDUC/sessions.list updated to include last sessions (last session=35)
+run dogroups,'reduc2'  (with auto 0.1rms flags updated for all data)
+infile,'reduc2/rawcombine1.fits'
+
+Some manual editting needed, but offline flagging by Sabrina/Diana too
+aggressive and removes too much data.
+
+Auto flags:
+FLAGS_0.1rms
+
+FLAG versions:
+FLAGS_0.1rms AUTO flagging
+FLAGS_DSG  (similar to FLAGS_0.1rms in many cases)
+FLAGS_DSG_v2 manually flagging based on baselines (but subtle may be ok)
+FLAGS_DSG_v3 removes some of the flags in v2 less aggressive
+
+Start with FLAGS_DSG_v3 and remove subtle baselines flags even "Huge
+RFI" flagged data are ok (many times RFI near edge of band and not
+affecting line
+
+Start with FLAGS_0.1rms version and re-do manual flagging based on
+summations.  
+
+resolution 12.5MHz (gsmooth,3) ==> 1km/s
+15 channels ~5km/s
+############
+(1) Loop through reduc2 and note problem sources spectra
+Continuum rms ~0.05-0.1 K
+Potential Issues
+12 00548  (baselines wing very uncertain)
+18 01173
+22 01417
+24 01484
+26 01519
+28 02070
+32 02114
+36 02203
+44 02401  All Blanked but detection by Sabrina by removing some flags
+48 02437
+50 02512  
+54 03164
+56 03217
+
+Exposure time 
+4min scans  5 sec integrations
+getps,scan ==> 2min  
+Combine 2 IF windows 4min
+getps rms for 1 IF = 0.0270
+rms for combining 2 IF windows = 0.0266
+(improves the noise level by 2%)
+Combining 2 IF and 2 POL gives 8min of I
+5sec int ==> 200 hrs * 2IF * 2POL =~600k spectra
+
+
+Need continuum uncertainty so need to keep continuum level and compute
+rms for different scans to provide uncertainty during the dogroups
+stage.
+
+replace,bchan,echan will interpolate across narrow RFI
+
+Run stats on baseline free area to give noise
+Will smooth by 7 channels and decimate (21.36kHz resolution)
+
+GBTIDL -> stats          
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      184      374      557      3341.5      4187.4   -0.011848    0.011249
+
+                       Mean      Median         RMS    Variance        Area
+                -5.7365E-05  0.00048433   0.0046979  2.2070E-05   -0.048925
+GBTIDL -> gmeasure,4,0.5,rms=0.0047
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) = 212.96  -0.97
+                                    Left side fit (a + bx) =  97.97   0.40
+                                   Peaks (right then left) =  43.37  41.37
+  Area, Width, Velocity (followed by errors in same order) =   14.46  398.96 4561.91    0.48   12.73    6.37
+
+GBTIDL -> gmeasure,4,0.2,rms=0.0047
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) = 220.53  -0.97
+                                    Left side fit (a + bx) =  94.86   0.40
+                                   Peaks (right then left) =  43.37  41.37
+  Area, Width, Velocity (followed by errors in same order) =   14.48  438.47 4554.10    0.46   12.73    6.37
+
+Stas over area as a sanity check
+GBTIDL -> stats 
+Click twice to define stats region
+    Chans    bchan    echan        Xmin        Xmax        Ymin        Ymax
+      100      246      345      4321.9      4781.9  4.5031E-06    0.045269
+
+                       Mean      Median         RMS    Variance        Area
+                   0.031120    0.034495    0.010878  0.00011834      14.481
+e.g,
+
+50% and 20% measurements
+Area          50% Width  20%width   Velocity
+14.46+/-0.48  399+/-13   438+/-13   4562+/-7
+for errors area is ok when using proper RMS
+for velocity error pick larger of error or differences in velocity between 20% fit or 50% fit
+
+GBTIDL -> fitgauss
+**Instructions for fitgauss procedure:
+Left Mouse Button: to mark regions to be fit.
+Center Mouse Button: to mark initial guesses (center then width)
+Right Mouse Button: to calculate and show fits
+**********************************************************
+Limits accepted for region        1
+Guesses accepted for gaussian        1
+***** Initial Guesses
+          G#      Height       Center  (km/s)   FWHM  (km/s)
+Init:      1     0.03556         4554.8750         364.5
+
+***** Fitted Gaussians
+        Height                    Center (km/s)               FWHM (km/s)
+ 1     0.04122 (  0.001451)     4565.5571 (     6.184)       358.6 (     15.30)
+GBTIDL -> gmeasure,1,0.5,rms=0.0047
+Click twice to define gmeasure region
+  Area, Width, Velocity (followed by errors in same order) =   13.45  387.84 4563.71    0.47    0.00    0.00
+GBTIDL -> gmeasure,4,0.5,rms=0.0047
+Click twice to define gmeasure region
+click on the positions for the two peaks
+                                   Right side fit (a + bx) = 209.84  -0.97
+                                    Left side fit (a + bx) =  95.33   0.39
+                                   Peaks (right then left) =  41.05  39.59
+  Area, Width, Velocity (followed by errors in same order) =   13.46  396.41 4562.11    0.48   12.91    6.46
+
+Gmeasure-1 returns similar results as gmeasure-4
+
+
+Wrote reduction routines.
+Process per source from calibrated reduc files
+filein,'reduc2/rawpol1.fits'
+(1) fit1,sc  copy to container-10
+(2) zoom and replace narrow RFI interactively 
+(3) fit2 does smoothing and baseline removal with copy of input in container-11 and continuum as container-3
+(4) fit3 does measurements with input in container-12 and outputs measurements and ascii spectra
+
+Reduction log at FINAL/LOG_reduction
+
+Ouput table
+GOALS_output_measure.dat
+write_ascii,'FINAL/'+src+'_v1.txt'  (includes continuum level)
+fileout,'FINAL/GOALS_final_v1.fits  (has continuum level removed)
+Reduction LOG in FINAL/LOG_reduction
+
+
+Table output
+(0) src name
+(1) Fit mode (0 nondect, 1 gmeasure, 2 gaussian)
+(2) Observed Optical Velocity
+(3) On-Source Integration time in min (effective with Dual Polarization)
+(4) Line Jy km/s from stats
+(5) Peak in mJy
+(6) ch1
+(7) ch2
+(8) Continuum Level Jy
+(9) RMS in mJy for 7 raw channels (21.36kHz)
+(10) Line Jy km/s for 50%
+(11) error on Line
+(12) Line width 50%
+(13) error on line width
+(14) center velocity
+(15) error on center velocity
+(16) Line Jy km/s for 20%
+(17) error on Line
+(18) Line width 20%
+(19) error on line width
+(20) center velocity
+(21) error on center velocity
+
+Error on continuum level (8) from flux uncertainty as well as 0.05 K per 4min ONOFF scan
+
+Stability ~ 0.05*Snu + 0.05/N^0.5   ~0.05-0.1 K /N^0.5
+i.e., sigma =  A*Snu + B/N^0.5 where N=EXP/4min and A and B derived empirically from the data.
+
+For <0.1 Jy continuum (no flux), rms=0.072
+
+
+
+********************************************************
+ 
+Sept 2017 using filein,'reduc2/rawpol1.fits':
+F00073+2538_v1.txt
+F00085-1223_v1.txt
+F00163-1039_v1.txt
+F00344-3349_v1.txt
+F00402-2349_v1.txt
+F00506+7248_v1.txt
+skip 00548+4331
+F01053-1746_v1.txt
+
+July 2018 using filein,'reduc2/rawpol1.fits':
+F01076-1707_v1.txt  
+F01173+1405_v1.txt
+F01364-1042_v1.txt  
+F01417+1651_v1.txt
+F01484+2220_v1.txt (questionable baseline region towards low velocity)
+F01519+3640_v1.txt 
+F02070+3857_v1.txt
+F02071-1023_v1.txt  (plnum1 clean plnum0 has ripple)
+F00344-3349_v1.txt 
+F02114+0456_v1.txt 
+F02152+1418_v1.txt
+SKIP 02203+3158 BAD baselines
+F02208+4744_v1.txt
+F02281-0309_v1.txt
+F02345+2053_v1.txt
+SKIP 02401-0013 ALL data blanked
+F02435+1253_v1.txt  Broad+narrow profile
+F02437+2122_v1.txt  Emission+Abs profile
+F02512+1446_v1.txt  Non-detection or weak possible
+F03117+4151_v1.txt
+SKIP 03164+4119 ALL data blanked
+F03217+4022_v1.txt
+F03359+1523_v1.txt   ABS  (re-do below)
+F03514+1546_v1.txt
+F03582+6012_v1.txt
+F04097+0525_v1.txt
+
+2018.07.13
+F04118-3207_v1.txt
+F04191-1855_v1.txt 
+F04271+3849_v1.txt
+F04315-0840_v1.txt
+F04326+1904_v1.txt
+F04502-3304_v1.txt  
+
+2018.07.16
+F05053-0805_v1.txt  RFI within HI profile
+F05054+1718_v1.txt
+F05081+7936_v1.txt
+F05083+2441_v1.txt
+F05129+5128_v1.txt
+F05187-1017_v1.txt
+
+2021.05.04
+filein,'reduc2/rawpol1.fits':
+(some extra test reductions of 00073 to verify techniques)
+(so multiple copies in FITS and results table file)
+fit0,# (compare polarizations)
+fit1,# (remove RFI)
+fit2 (fit baselines)
+fit3 (make measurements) Only use Gaussian for one gaussian
+90 F05189  non-detection
+92 F05223  
+94 F05365
+96 F05368
+98 F05414 Narrow RFI in broad profile (both pol consistent)
+100 F05442 continuum offset between polarizations, but good line
+102 F06052
+104 F06076 non-detection
+
+2021.05.05
+106 F06107 
+108 F06295  50% from Gaussian, 20% from Gmeasure
+110 F06538  50% from Gaussian, 20% from Gmeasure
+112 F07063
+114 F07251 SKIP Bad baseline ripples   ***skip***
+116 F07256
+118 F07329
+120 F08339
+122 F08354 **Emission within broad absorption*** Measure emission
+124 F08424
+126 F08572  Non-detection
+128 F09111 
+130 F09126
+132 F09320  Absorption fit 4 (modify fit3)
+58 F03359 Gaussian fit absorption re-do with new routine (redid twice
+to get script correct for method 3)
+
+2021.05.06
+134 F09333
+136 F09437
+138 F10015
+140 F10038
+142 F10173 non-detection
+144 F10196
+146 F10565 weak absorption
+148 F11011
+150 F11186
+152 F11231
+154 F11257 Emission+ABS (do twice replacing ABS with zero for
+measurements and then without for plotting Ascii file)
+Example code:
+vec=getdata(0)
+xx=findgen(n_elements(vec))
+GBTIDL -> bb=where(vec lt 0 and xx gt 230 and xx lt 330)
+GBTIDL -> vec[bb]=0.0
+GBTIDL -> setdata,vec
+Do fitting with ABS replaced by zero 1st numbers and then 2nd time for
+making ascii file treating as non-detection
+
+156 F12043 
+
+158 F12112 Extra Absorption feature at high-vel near RFI regions
+(Narrow RFI) removed replace,184,197 Weak absorption source at optical
+velocity measured.  **Need to measure extra absorption feature**
+
+160 F12116
+162 F12224 possible weak signal, but non-detection
+164 F12243
+166 F12540 ABS
+168 F12590 non-detection
+170 F12592
+172 F12596
+174 F13001  ABS
+
+2021.05.07
+176 F13097  
+178 F13126 ABS at high velocity Meaurement (inflowing??)
+180 F13136
+182 F13182
+184 F13188
+186 F13197  Marginal detection
+188 F13229
+190 F13301
+192 F13362 Non-detection
+194 F13373
+
+2021.05.11
+196 F13428 Broad absorption, with additional absorption feature
+198 F13470
+200 F13497 Some RFI inside profile, but ok when cleaned
+202 F13564
+204 F14179 Weak emission
+206 F14280
+208 F14348  Non-detection
+210 F14423
+212 F14547 
+214 F15107 ABS 
+216 F15163  **Weak Emission with ABS **
+218 F15250  weak double ABS with possible weak emssion
+
+2021.05.12
+220 F15276 Typical source NGC5936 NED flux is 143mJy@1.4 GHz NVSS=124.5mJy
+           GBT result is 195mJy (but note there is a 9' beam and other possible
+           sources of emission).   Need to add confusion noise to error budget??
+222 F15527 Broad Absorption arp220
+224 F15437
+226 F16030
+228 F16104
+230 F16164 ABS/weak emission away from source to the blue.  Non-detection
+
+2021.05.13
+232 F16284
+234 F16399
+236 F16443
+238 F16504  Broad ABS, possible weak emission wing ABS measured
+240 F16516
+242 F16577  Emission with ABS -- zero out ABS measure Emission lower limit
+244 F17132
+246 F17138
+248 F17207  Broad ABS
+250 F17530
+252 F17548
+254 F17578
+256 F18090
+258 F18131
+260 F18145
+262 F18293
+264 F18329
+266 F18425
+268 F19115 **Possible Weak emission with possible weak ABS (emission measured)
+20% GMEASURE fails on left side 20% width =524km/s use error from 50%*1.15**
+270 F19120
+272 F19297 Non-detection
+274 F19542 Weak emission at offset velocity (at +1000 km/s).  Non-detection.
+276 F20221
+
+2021.05.14
+278 F20264 Redid to ignore broad wing which is in only one pol.(use 2nd row)
+280 F20304
+282 F20351
+284 F20550 SKIP crazy bad baselines....
+286 F21101 Non-detection
+288 F21453 ABS with emission wings.  Measure Emission and zero out ABS
+and treat as lower limit.  We may want to measure ABS and emission
+separately.  Emission with ABS, measure emission and quote lower
+limit.  Pure ABS lower limit uncertain due to Ts/(Ts - Tc), and Tc can
+be very large for non-thermal radio emission.  Ts cold medium~80K and
+warm medium 500K.  Thermal Tc would be 5000-10000K (and compute
+example for non-thermal)  Adopt approximation of Ts/(Ts-Tc)~0.01?!?.
+Or look at radio source sizes.
+??Question to think about point source continuum Tb.
+S/Omega_beam=2kTr/lambda^2  Tr=Tb(Omega_source)/(Omega_beam)
+S=2kTb/lambda^2 * Omega_source
+
+290 F22118-2742
+
+292 F22287 SKIP very bad baselines
+294 F22389
+296 F22491 Non-detection
+
+2021.07.13
+
+298 F23007 Detection, but very bad baselines SKIP (consistency in jump)
+300 F23024 SKIP baselines
+302 F21135 SKIP broad RFI at 8600 km/s near target velocity
+304 F23157 Broad RFI at 8600 km/s but detection (affects low channels)
+306 F23157+06  
+308 F23254 Apparent Absorption with components outside wings on both sides seen
+in both polarizations --  could be just RFI broad signal.  SKIP
+310 F23262  
+
+2021.08.11
+----------reminder----
+Steps for calibration and measurements:
+
+filein,'reduc2/rawpol1.fits'
+
+(0) fit0,sc compare each polarization separately to confirm baseline
+regions and line features.
+
+(1) fit1,sc copy to container-10 without replacement to redo RFI
+removal Calibrates and combines both polarizations, corrections for
+ATM.  Does smoothing to make RFI removal easier plots result
+
+
+(2) zoom and replace narrow RFI interactively 
+
+Middle mouse button around RFI and use replace,bchan,echan to
+interpolate across RFI, where bchan is first bad channel and echan is
+last bad channel
+
+click unzoom button
+
+(3) fit2 does baseline removal with copy of input in container-11 and
+continuum as container-3
+
+(4) fit3 does measurements with input in container-12 and outputs
+measurements and ascii spectra
+
+Reduction log at FINAL/LOG_reduction
+---------------
+
+312 F23365+3604  Strong narrow feature in one of the polarizations at high
+velocity, not tabulated.  Source has weak absorption which was
+measured.
+
+314 F23394
+
+316 F23436  Baseline ripple at low velocity side, but ok at source velocity.
+cut bad data out when plotting
+
+318 F23444  Emision offset to higher velocity
+
+320 F23488+1949 bad baselines skip
+
+322 F23488+2018
+
+DONE with first pass using default reduction
+
+=======================================
+
+Skipped in reduction reduction:
+
+12 F00548 uncertain baselines
+36 F02203 bad baselines
+44 F02401 (all data blanked)
+54 F03164 (3c84 all data blanked)
+114 F07251
+284 F20550
+292 F22287
+298 F23007
+300 F23024
+302 F21135
+308 F23254
+320 F23488+1949
+
+Only 12 sources could not be measured with default reduction.
+
+[dfrayer@euler FINAL]$ ls *_v1.txt | wc
+    150     150    2850
+150 Sources with _v1.txt files from default reduction 
+and 12 sources requiring more work
+
+Differences between reduc2 and other versions??
+
+reduc2 used for 150 sources reduc5 looks ok for some with previous bad baselines
+reduc5 more aggessive removal and cleans up several more sources.
+
+Keep reduc5 results separate from reduc2 results
+
+Default reduct2 txt files in DATAv1
+
+
+
+2021.08.26
+Reduce using reduc5 saving in the FINAL area
+
+
+GBTIDL -> filein,'reduc5/rawpol1.fits'
+
+Compare reduc2 vs reduc5 for marginal reduc2 results
+
+
+ ASCII file written:FINAL/F23436+5257_v1.txt
+
+316 source measurements are consistent.
+
+318 reduct5 only small set remaining -- look at other reductions to
+confirm high-velocity feature.
+
+
+REDUC5
+
+12 F00548  some baselines but ok measurements/fits
+
+36 F02203  clean good measurements
+
+44 F02401  Bright continuum, but ok. galactic HI absorption at 0 velocity.  
+           Some remaining underlying baselines, but HI fits ok
+
+54 F03164  All data still blanked with reduct5 SKIP  
+
+114 F07251 non-detection
+
+284 F20550 clean good data
+
+292 F22287 clean good data
+
+298 F23007 Abs with central emission (lower limit)
+
+300 F23024 
+
+302 F23135
+
+308 F23254
+
+320 F23488
+
+-----------------
+
+All done except 3c84!!
+
+[dfrayer@euler FINAL]$ ls -l *.txt | wc
+    161    1449   10787
+
+ cp -r FINAL DATAv2
+
+All current reductions of 3c84 have all data blanked.  Need to reduce
+these data separately by first removing all the flags.
+ 
+Blank flags
+
+/data/scratch/dfrayer/GOALS/AGBT10B14/data
+
+The different reduc version correspond to the flags
+
+I think possibly
+FLAGS_0.1rms ==> reduc2
+FLAGS_DSG  reduc3?
+FLAGS_DSG_v2 reduc4?
+FLAGS_DSG_v3 reduc5?
+FLAGS_diana  reduc1?
+FLAGS_default = FLAGS_0.1rms
+
+
