@@ -1,4 +1,4 @@
-srcName,Dlum(Mpc),log10(Lir),ObservedFname,FitMode,ObsVel(km/s),OnSourceTime(min),Line(Jykm/s),Peak(mJy),ch1,ch2,Continuum(Jy),RMS(mJy),Line50(Jykm/s),err50,Width50(km/s),errWidth50,CenterVel50(km/s),errCenterVel50,Line20(Jykm/s),err20,Width20(km/s),errWidth20,CenterVel20(km/s),errCenterVel20
+name,Dlum[Mpc],log(Lir),obsFName,fit,OptVel[km/s],int_time,line[Jykm/s],peak,ch1,ch2,continuumLevel,RMS[mJy],50L,50Lerr,w50,w50err,50centerVel,50centVelErr,20L,20Lerr,w20,w20err,20centerVel,20centVelErr
 F00073+2538,65.2,11.12,F00073+2538,1,4566.0,22.93,9.04,29.18,236,352,0.138,1.95,9.00,0.20,387.2,11.5,4561.8,5.8,8.97,0.20,453.1,11.5,4567.2,5.8
 F00085-1223,84.1,11.49,F00085-1223,1,5879.0,22.93,4.48,21.01,246,339,0.129,2.08,4.47,0.18,298.3,54.2,5908.2,27.1,4.46,0.20,432.4,40.7,5880.8,20.3
 F00163-1039,117.5,11.48,F00163-1039,1,8139.0,35.99,5.95,32.08,256,333,0.951,1.96,5.94,0.16,264.6,8.8,8141.2,4.4,5.94,0.16,309.5,9.5,8142.6,4.7
