@@ -1,0 +1,18 @@
+pro mktxt
+
+filein,'GOALS_final_v1.fits'
+
+sclear
+getrec,0
+velo
+
+for i=0,172  do begin 
+  getrec,i
+  name=!g.s[0].source
+  write_ascii,name+'_v2.txt'
+endfor
+
+return
+
+end
+

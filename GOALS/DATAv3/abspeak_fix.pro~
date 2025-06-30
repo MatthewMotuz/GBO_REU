@@ -1,0 +1,22 @@
+pro abspeak_fix,rec
+;;derive negative peaks for ABS features 
+;;(reduction routine returned the MAX not the negative peak)
+;;
+
+getrec,rec
+velo
+print,'Select RMS region'
+stats,ret=out
+print,'RMS',out.rms
+print,'Measure Line emission or noise region again if non-detection'
+stats,ret=bstats
+;;rms in mJy
+rms1=out.rms*1000.
+;;peak in mJy
+pk=bstats.max*1000.
+npk=bstats.min*1000.
+
+print,'RMS, Max, Min',rms1,pk,npk
+
+return
+end
